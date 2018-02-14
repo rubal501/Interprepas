@@ -5,7 +5,9 @@
  */
 package Negocio.Controlador;
 
-import Negocio.Modelo.Alumno;
+import Negocio.Modelo.Examen;
+import Negocio.Modelo.Inciso;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Vector;
@@ -19,75 +21,82 @@ public class Agenda {
        static String sql;
        static ResultSet resultado;
     static Vector registro=new Vector();
-    static Alumno alumno=new Alumno();
-    public static void GuardarRegistro(Alumno alumno){
-        if(registro.add(alumno)){
-            JOptionPane.showMessageDialog(null, "Se ha agregado correctamente al alumno");
+    static Inciso inciso=new Inciso();
+    public static void GuardarRegistro(Inciso inciso){
+        if(registro.add(inciso)){
+            JOptionPane.showMessageDialog(null, "Se ha agregado correctamente al inciso");
         }
     }
-    public static void GuardarRegistroBD(Alumno alumno){
+    public static void GuardarRegistroBD(Inciso inciso){
        
-        sql="insert into alumnos values('"+alumno.Nombre+"','"+alumno.ApellidoP+"','"+alumno.ApellidoM+"','"+alumno.Nocta+"')";
+        sql="insert into incisos values('"+inciso.pregunta+"','"+inciso.respuestaCorrecta+"',"+inciso.primerRespuesta+"','"+inciso.segundaRespuesta+"','"+inciso.terceraRespuesta+"','"+inciso.cuartaRespuesta+"','"+inciso.claveAsignatura+"','"+inciso.grado+"','"+inciso.identificador+"')";
        if(Conexion.ejecutarSQL(sql)){
-            JOptionPane.showMessageDialog(null, "Se ha agregado correctamente al alumno");
+            JOptionPane.showMessageDialog(null, "Se ha agregado correctamente al inciso");
         }
     }
-    public static Alumno BorrarBD(Alumno alumno){
+    
+    /*
+    public static Inciso BorrarBD(Inciso inciso){
        
-        sql="delete from alumnos where nocta='"+alumno.Nocta+"'";
-        if(alumno.Nombre.isEmpty())
+        sql="delete from incisos where nocta='"+inciso.Nocta+"'";
+        if(inciso.Nombre.isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Ya no hay registros o registro en blanco");
         }
         else
         {
           if(Conexion.ejecutarSQL(sql)){
-            JOptionPane.showMessageDialog(null, "Se ha eliminado correctamente al alumno:\n"+alumno.Nombre+" "+alumno.ApellidoP+" "+alumno.ApellidoM);
-            alumno=CargarRegistrosBD();    
+            JOptionPane.showMessageDialog(null, "Se ha eliminado correctamente al inciso:\n"+inciso.Nombre+" "+inciso.ApellidoP+" "+inciso.ApellidoM);
+            inciso=CargarRegistrosBD();    
             }  
         }
-        return alumno;
+        return inciso;
     }
+*/
+    
     public static String MostrarRegistros(){
         String Linea="",Linea2;
         for(int i=0;i<registro.size();i++)
         {
-            alumno=(Alumno) registro.get(i);
-            Linea2=alumno.Nombre+" "+alumno.ApellidoP+" "+alumno.ApellidoM+" "+alumno.Nocta;
+            inciso=(Inciso) registro.get(i);
+            Linea2=inciso.pregunta+" "+inciso.respuestaCorrecta+" "+inciso.primerRespuesta+" "+inciso.segundaRespuesta+" "+inciso.terceraRespuesta+" "+inciso.cuartaRespuesta+" "+inciso.claveAsignatura+" "+inciso.grado+" "+inciso.identificador;
             Linea=Linea+Linea2+"\n";
         }
         return Linea;
     }
-    public static Alumno CargarRegistrosBD(){
+    public static Inciso CargarRegistrosBD(){
 
-        sql="select * from alumnos";
+        sql="select * from incisos";
         
         try{
             resultado=Conexion.ejecutarSQLSelect(sql);
             if(resultado.first()) //primero sin if y sin el else ;)
             {
-            alumno.Nombre=resultado.getString("nombre");
-            alumno.ApellidoP=resultado.getString("appat");
-            alumno.ApellidoM=resultado.getString("apmat");
-            alumno.Nocta=resultado.getString("nocta");
+            inciso.pregunta=resultado.getString("pregunta");
+            inciso.respuestaCorrecta=resultado.getInt("respuestaCorrecta");
+            inciso.primerRespuesta=resultado.getString("primerRespuesta");
+            inciso.segundaRespuesta=resultado.getString("segundaRespuesta");
+            inciso.terceraRespuesta=resultado.getString("terceraRespuesta");
+            inciso.cuartaRespuesta=resultado.getString("cuartaRespuesta");
             }
             else
             {
                 JOptionPane.showMessageDialog(null, "No hay ningún registro :P");
-                alumno.Nombre="";
-            alumno.ApellidoP="";
-            alumno.ApellidoM="";
-            alumno.Nocta="";
+                inciso.pregunta = "";
+                inciso.respuestaCorrecta = 0;
+                inciso.primerRespuesta = "";
+                inciso.segundaRespuesta = "";
+                inciso.terceraRespuesta = "";
+                inciso.cuartaRespuesta = "";
             }
         }
             catch (Exception e)
         {
-            
              e.printStackTrace();
         }
-        return alumno;
+        return inciso;
     }
-    public static Alumno SiguienteBD(){
+    public static Inciso SiguienteBD(){
         try{
         //resultado=Conexion.ejecutarSQLSelect(sql);
       //  while(resultado.);
@@ -98,10 +107,13 @@ public class Agenda {
             else
             {
             resultado.next();
-        alumno.Nombre=resultado.getString("nombre");
-        alumno.ApellidoP=resultado.getString("appat");
-        alumno.ApellidoM=resultado.getString("apmat");
-        alumno.Nocta=resultado.getString("nocta");
+
+            inciso.pregunta=resultado.getString("pregunta");
+            inciso.respuestaCorrecta=resultado.getInt("respuestaCorrecta");
+            inciso.primerRespuesta=resultado.getString("primerRespuesta");
+            inciso.segundaRespuesta=resultado.getString("segundaRespuesta");
+            inciso.terceraRespuesta=resultado.getString("terceraRespuesta");
+            inciso.cuartaRespuesta=resultado.getString("cuartaRespuesta");
             }
         
         }
@@ -109,9 +121,9 @@ public class Agenda {
         {
              e.printStackTrace();
         }
-        return alumno;
+        return inciso;
     }
-  public static Alumno AnteriorBD(){
+  public static Inciso AnteriorBD(){
         try{
         //resultado=Conexion.ejecutarSQLSelect(sql);
       //  while(resultado.);
@@ -122,10 +134,13 @@ public class Agenda {
             else
             {
             resultado.previous();
-        alumno.Nombre=resultado.getString("nombre");
-        alumno.ApellidoP=resultado.getString("appat");
-        alumno.ApellidoM=resultado.getString("apmat");
-        alumno.Nocta=resultado.getString("nocta");
+
+            inciso.pregunta=resultado.getString("pregunta");
+            inciso.respuestaCorrecta=resultado.getInt("respuestaCorrecta");
+            inciso.primerRespuesta=resultado.getString("primerRespuesta");
+            inciso.segundaRespuesta=resultado.getString("segundaRespuesta");
+            inciso.terceraRespuesta=resultado.getString("terceraRespuesta");
+            inciso.cuartaRespuesta=resultado.getString("cuartaRespuesta");
             }
         
         }
@@ -133,6 +148,12 @@ public class Agenda {
         {
              e.printStackTrace();
         }
-        return alumno;
+        return inciso;
     }
 }
+
+/*
+TODO
+
+metodo borrar de la base de datos
+*/

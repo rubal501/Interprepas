@@ -20,8 +20,8 @@ public class Examen {
     
     List<Inciso> incisos;
 
-    public Examen() {
-        incisos = new ArrayList<Inciso>();
+    public Examen(List<Inciso> incisos) {
+        this.incisos = incisos;
     }
 }
 
