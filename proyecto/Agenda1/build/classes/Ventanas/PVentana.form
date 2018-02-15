@@ -143,7 +143,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="lblTitulo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Datos del alumno"/>
+        <Property name="text" type="java.lang.String" value="Agregar preguntas"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblNombre">

@@ -63,7 +63,7 @@ public class PVentana extends javax.swing.JFrame {
             }
         });
 
-        lblTitulo.setText("Datos del alumno");
+        lblTitulo.setText("Agregar preguntas");
 
         lblNombre.setText("Nombre:");
 
