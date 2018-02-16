@@ -12,8 +12,8 @@ TODO
 
 ## Autores
 
-* **Hernandez Cano Alejandro** - *trabajo inicial* - [PurpleBooth](https://github.com/PurpleBooth)
-* **Rubalcava Cortes Javier Roberto** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Hernandez Cano Alejandro** - *trabajo inicial* - [AleHD](https://github.com/aleHD)
+* **Rubalcava Cortes Javier Roberto** - *Initial work* - [rubal501](https://github.com/rubal501)
 
 ## Licencia
 
