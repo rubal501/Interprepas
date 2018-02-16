@@ -5,8 +5,10 @@
  */
 package Ventanas;
 
+import Negocio.Controlador.Conexion;
 import Negocio.Controlador.ExamenControlador;
 import Negocio.Modelo.Inciso;
+import java.sql.ResultSet;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -321,6 +323,23 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
                 new PanelCreacionExamen().setVisible(true);
             }
         });
+        
+        Conexion.crearConexion();
+        
+        try{
+            List<String> queue = new ArrayList<String>();
+            queue.add("create table g(z char(10), y char(12), x char(15));");
+            
+            for (String request : queue)
+                Conexion.ejecutarSQL(request);
+                
+            ResultSet nose = Conexion.ejecutarSQLSelect("show tables;");
+
+            for (int i = 0; i < 256; i++)
+                System.out.println(nose.getNString(i));
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
