@@ -5,6 +5,8 @@
  */
 package Ventanas;
 
+//nel
+
 import Negocio.Controlador.ExamenControlador;
 import Negocio.Modelo.Examen;
 import Negocio.Modelo.Inciso;
@@ -28,7 +30,7 @@ public class ExamenAlumno extends javax.swing.JFrame {
         grupoBotones.add(radA);
         grupoBotones.add(radB);
         grupoBotones.add(radC);
-        grupoBotones.add(radD);    
+        grupoBotones.add(radD);
     }
     
     void conectarBD() {
