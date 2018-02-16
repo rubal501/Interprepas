@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author d204
@@ -32,7 +33,7 @@ public static boolean crearConexion()
 {
    try {
       Class.forName("com.mysql.jdbc.Driver");
-      conexionOK = DriverManager.getConnection("jdbc:mysql://localhost:3306/preguntas","root","");
+      conexionOK = DriverManager.getConnection("jdbc:mysql://localhost:3306/Preguntas","root","");
    } catch (SQLException ex) {
       ex.printStackTrace();
       return false;
