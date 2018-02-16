@@ -16,6 +16,10 @@ public class ExamenAlumno extends javax.swing.JFrame {
      */
     public ExamenAlumno() {
         initComponents();
+        grupoBotones.add(radA);
+        grupoBotones.add(radB);
+        grupoBotones.add(radC);
+        grupoBotones.add(radD);
     }
 
     /**
@@ -27,7 +31,7 @@ public class ExamenAlumno extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup2 = new javax.swing.ButtonGroup();
+        grupoBotones = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lblPregunta = new javax.swing.JLabel();
@@ -41,6 +45,7 @@ public class ExamenAlumno extends javax.swing.JFrame {
         lblD = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        buttRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -128,22 +133,31 @@ public class ExamenAlumno extends javax.swing.JFrame {
 
         jButton2.setText("->");
 
+        buttRegresar.setText("Regresar");
+        buttRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttRegresarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(64, 64, 64)
-                .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(128, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(131, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(64, 64, 64)
+                .addComponent(buttRegresar)
+                .addGap(64, 64, 64)
+                .addComponent(jButton2)
+                .addContainerGap(131, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,7 +169,8 @@ public class ExamenAlumno extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButton2)
+                    .addComponent(buttRegresar))
                 .addContainerGap(64, Short.MAX_VALUE))
         );
 
@@ -165,6 +180,10 @@ public class ExamenAlumno extends javax.swing.JFrame {
     private void radAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radAActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_radAActionPerformed
+
+    private void buttRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttRegresarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttRegresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -202,7 +221,8 @@ public class ExamenAlumno extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JButton buttRegresar;
+    private javax.swing.ButtonGroup grupoBotones;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
