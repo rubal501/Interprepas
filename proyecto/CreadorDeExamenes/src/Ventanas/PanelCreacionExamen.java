@@ -56,9 +56,9 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
         txtTerceraRespuesta = new javax.swing.JTextField();
         cmbRespuestaCorrecta = new javax.swing.JComboBox<>();
         lblTextoPregunta = new javax.swing.JLabel();
-        buttRegresar = new javax.swing.JButton();
+        buttContestar = new javax.swing.JButton();
         buttAgregarInciso = new javax.swing.JButton();
-        buttFinalizarCreacion = new javax.swing.JButton();
+        buttSalir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -129,7 +129,7 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
                             .addComponent(txtSegundaRespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtTerceraRespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtCuartaRespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 43, Short.MAX_VALUE))))
+                        .addGap(0, 42, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,7 +159,12 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
                     .addComponent(cmbRespuestaCorrecta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        buttRegresar.setText("Regresar");
+        buttContestar.setText("Contestar");
+        buttContestar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttContestarActionPerformed(evt);
+            }
+        });
 
         buttAgregarInciso.setText("Agregar");
         buttAgregarInciso.addActionListener(new java.awt.event.ActionListener() {
@@ -168,10 +173,10 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
             }
         });
 
-        buttFinalizarCreacion.setText("Finalizar");
-        buttFinalizarCreacion.addActionListener(new java.awt.event.ActionListener() {
+        buttSalir.setText("Salir");
+        buttSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttFinalizarCreacionActionPerformed(evt);
+                buttSalirActionPerformed(evt);
             }
         });
 
@@ -183,48 +188,59 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(45, Short.MAX_VALUE)
+                .addContainerGap(73, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(108, 108, 108)
                         .addComponent(jLabel1)))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(buttRegresar)
-                .addGap(64, 64, 64)
+                .addComponent(buttContestar)
+                .addGap(32, 32, 32)
                 .addComponent(buttAgregarInciso)
-                .addGap(64, 64, 64)
-                .addComponent(buttFinalizarCreacion)
+                .addGap(32, 32, 32)
+                .addComponent(buttSalir)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(64, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addGap(32, 32, 32)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 70, Short.MAX_VALUE)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttFinalizarCreacion)
-                    .addComponent(buttRegresar)
+                    .addComponent(buttSalir)
+                    .addComponent(buttContestar)
                     .addComponent(buttAgregarInciso))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttFinalizarCreacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttFinalizarCreacionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttFinalizarCreacionActionPerformed
+    private void buttSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttSalirActionPerformed
+        for (JTextField campoDeTexto : camposDeTexto) {
+            if (!campoDeTexto.getText().equals("")) {
+                int respuestaMensaje = JOptionPane.showConfirmDialog(null, "Se detectaron cambios pendientes. ¿Continuar sin guardar los cambios actuales?", "Cambios detectados", JOptionPane.YES_NO_OPTION);
+                if (respuestaMensaje == JOptionPane.YES_OPTION)
+                    this.dispose();
+                else return;
+            }
+        }
+        
+        int respuestaMensaje = JOptionPane.showConfirmDialog(null, "¿Salir del programa?", "Confirmar salida", JOptionPane.YES_NO_OPTION);
+        if (respuestaMensaje == JOptionPane.YES_OPTION)
+            this.dispose();
+    }//GEN-LAST:event_buttSalirActionPerformed
 
     private void buttAgregarIncisoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttAgregarIncisoActionPerformed
         for (JTextField campoDeTexto : camposDeTexto) {
             if (campoDeTexto.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Llena el formulario antes de continuar");
+                JOptionPane.showMessageDialog(null, "Faltan campos por llenar.");
                 return;
             }
         }
@@ -256,6 +272,21 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
     private void txtPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPreguntaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPreguntaActionPerformed
+
+    private void buttContestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttContestarActionPerformed
+        for (JTextField campoDeTexto : camposDeTexto) {
+            if (!campoDeTexto.getText().equals("")) {
+                int respuestaMensaje = JOptionPane.showConfirmDialog(null, "Se detectaron cambios pendientes. ¿Continuar sin guardar los cambios actuales?", "Cambios detectados", JOptionPane.YES_NO_OPTION);
+                if (respuestaMensaje == JOptionPane.YES_OPTION)
+                    break;
+                else return;
+            }
+        }
+        
+        this.dispose();
+        ExamenAlumno ventana = new ExamenAlumno();
+        ventana.setVisible(true);
+    }//GEN-LAST:event_buttContestarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -294,8 +325,8 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttAgregarInciso;
-    private javax.swing.JButton buttFinalizarCreacion;
-    private javax.swing.JButton buttRegresar;
+    private javax.swing.JButton buttContestar;
+    private javax.swing.JButton buttSalir;
     private javax.swing.JComboBox<String> cmbRespuestaCorrecta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
