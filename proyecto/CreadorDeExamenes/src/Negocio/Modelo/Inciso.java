@@ -13,11 +13,13 @@ import java.util.List;
  * @author ROOT
  */
 public class Inciso {
-    String pregunta;
-    //char grado; //(4-6)
-    int respuestaCorrecta; //index de la respuesta correcta (0-3)
-    //int identificador;
-    List<String> respuestas;
+
+    public String pregunta;
+    public char grado; //(4-6)
+    public int respuestaCorrecta; //index de la respuesta correcta (0-3)
+    public String identificador;
+    public String asignatura ;
+    public List<String> respuestas;
 
     public Inciso() {
         respuestas = new ArrayList<String>();
