@@ -37,11 +37,11 @@
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace pref="131" max="32767" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <Component id="buttAnterior" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
               <Component id="buttRegresar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+              <Component id="buttSiguiente" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="131" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -55,8 +55,8 @@
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttAnterior" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttSiguiente" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="buttRegresar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="64" max="32767" attributes="0"/>
@@ -195,15 +195,21 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="buttAnterior">
       <Properties>
         <Property name="text" type="java.lang.String" value="&lt;-"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttAnteriorActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="buttSiguiente">
       <Properties>
         <Property name="text" type="java.lang.String" value="-&gt;"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttSiguienteActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="buttRegresar">
       <Properties>

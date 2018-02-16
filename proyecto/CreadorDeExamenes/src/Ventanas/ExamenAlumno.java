@@ -5,6 +5,13 @@
  */
 package Ventanas;
 
+import Negocio.Controlador.ExamenControlador;
+import Negocio.Modelo.Examen;
+import Negocio.Modelo.Inciso;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author ROOT
@@ -16,10 +23,27 @@ public class ExamenAlumno extends javax.swing.JFrame {
      */
     public ExamenAlumno() {
         initComponents();
+        
+        conectarBD();
         grupoBotones.add(radA);
         grupoBotones.add(radB);
         grupoBotones.add(radC);
-        grupoBotones.add(radD);
+        grupoBotones.add(radD);    
+    }
+    
+    void conectarBD() {
+        Inciso inciso = new Inciso();
+        inciso = ExamenControlador.CargarRegistrosBD();
+        refrescarEtiquetas(inciso);
+    }
+    
+    void refrescarEtiquetas(Inciso inciso) {
+        List<String> respuestas = inciso.getRespuestas();
+        lblPregunta.setText(inciso.getPregunta());
+        lblA.setText(respuestas.get(0));
+        lblB.setText(respuestas.get(1));
+        lblC.setText(respuestas.get(2));
+        lblD.setText(respuestas.get(3));
     }
 
     /**
@@ -43,8 +67,8 @@ public class ExamenAlumno extends javax.swing.JFrame {
         lblB = new javax.swing.JLabel();
         lblC = new javax.swing.JLabel();
         lblD = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        buttAnterior = new javax.swing.JButton();
+        buttSiguiente = new javax.swing.JButton();
         buttRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -129,9 +153,19 @@ public class ExamenAlumno extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton1.setText("<-");
+        buttAnterior.setText("<-");
+        buttAnterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttAnteriorActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("->");
+        buttSiguiente.setText("->");
+        buttSiguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttSiguienteActionPerformed(evt);
+            }
+        });
 
         buttRegresar.setText("Regresar");
         buttRegresar.addActionListener(new java.awt.event.ActionListener() {
@@ -152,11 +186,11 @@ public class ExamenAlumno extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(131, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(buttAnterior)
                 .addGap(64, 64, 64)
                 .addComponent(buttRegresar)
                 .addGap(64, 64, 64)
-                .addComponent(jButton2)
+                .addComponent(buttSiguiente)
                 .addContainerGap(131, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -168,8 +202,8 @@ public class ExamenAlumno extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
+                    .addComponent(buttAnterior)
+                    .addComponent(buttSiguiente)
                     .addComponent(buttRegresar))
                 .addContainerGap(64, Short.MAX_VALUE))
         );
@@ -182,8 +216,20 @@ public class ExamenAlumno extends javax.swing.JFrame {
     }//GEN-LAST:event_radAActionPerformed
 
     private void buttRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttRegresarActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        PanelCreacionExamen ventana = new PanelCreacionExamen();
+        ventana.setVisible(true);
     }//GEN-LAST:event_buttRegresarActionPerformed
+
+    private void buttAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttAnteriorActionPerformed
+        Inciso inciso = ExamenControlador.AnteriorBD();
+        refrescarEtiquetas(inciso);
+    }//GEN-LAST:event_buttAnteriorActionPerformed
+
+    private void buttSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttSiguienteActionPerformed
+        Inciso inciso = ExamenControlador.SiguienteBD();
+        refrescarEtiquetas(inciso);
+    }//GEN-LAST:event_buttSiguienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,10 +267,10 @@ public class ExamenAlumno extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttAnterior;
     private javax.swing.JButton buttRegresar;
+    private javax.swing.JButton buttSiguiente;
     private javax.swing.ButtonGroup grupoBotones;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblA;
