@@ -1259,3 +1259,11 @@ InnoDB: Have you copied the .frm file of the table to the
 InnoDB: MySQL database directory from another database?
 InnoDB: You can look for further help from
 InnoDB: http://dev.mysql.com/doc/refman/5.6/en/innodb-troubleshooting.html
+2018-02-16  0:52:36 5236 [Note] C:\xampp\mysql\bin\mysqld.exe: Normal shutdown
+2018-02-16  0:52:36 5236 [Note] Event Scheduler: Purging the queue. 0 events
+2018-02-16  0:52:36 7940 [Note] InnoDB: FTS optimize thread exiting.
+2018-02-16  0:52:36 5236 [Note] InnoDB: Starting shutdown...
+2018-02-16  0:52:37 5236 [Note] InnoDB: Waiting for page_cleaner to finish flushing of buffer pool
+2018-02-16  0:52:38 5236 [Note] InnoDB: Shutdown completed; log sequence number 1600640
+2018-02-16  0:52:38 5236 [Note] C:\xampp\mysql\bin\mysqld.exe: Shutdown complete
+
