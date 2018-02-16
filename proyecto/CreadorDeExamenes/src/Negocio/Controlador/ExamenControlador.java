@@ -109,8 +109,6 @@ public class ExamenControlador {
         }
             catch (Exception e)
         {
-            
-             e.printStackTrace();
         }
         return inciso;
     }

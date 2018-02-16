@@ -5,7 +5,6 @@
  */
 package Ventanas;
 
-import Negocio.Controlador.Agenda;
 import Negocio.Controlador.ExamenControlador;
 import Negocio.Modelo.Inciso;
 import java.util.List;
