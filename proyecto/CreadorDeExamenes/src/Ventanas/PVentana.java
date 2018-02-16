@@ -5,7 +5,7 @@
  */
 package Ventanas;
 
-import Negocio.Modelo.Alumno;
+import Negocio.Modelo.Inciso;
 import Negocio.Controlador.Agenda;
 import Negocio.Controlador.Conexion;
 import javax.swing.JOptionPane;
@@ -272,7 +272,7 @@ public class PVentana extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Te falta el Nocta :P");
             return;
         }
-         Alumno alumno=new Alumno(txtNombre.getText(),txtApPat.getText(),txtApMat.getText(),txtNocta.getText());
+         Inciso inciso =new Inciso(txtNombre.getText(),txtApPat.getText(),txtApMat.getText(),txtNocta.getText());
         Agenda.GuardarRegistro(alumno);
     }//GEN-LAST:event_jButton1ActionPerformed
 

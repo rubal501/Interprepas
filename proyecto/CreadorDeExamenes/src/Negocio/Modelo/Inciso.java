@@ -13,6 +13,7 @@ import java.util.List;
  * @author ROOT
  */
 public class Inciso {
+
     public String pregunta;
     public char grado; //(4-6)
     public int respuestaCorrecta; //index de la respuesta correcta (0-3)
@@ -24,6 +25,14 @@ public class Inciso {
         respuestas = new ArrayList<String>();
     }
 
+    public Inciso(String pregunta, /*char grado,*/ int respuestaCorrecta, /*int identificador,*/ List<String> respuestas) {
+        this.pregunta = pregunta;
+        //this.grado = grado;
+        this.respuestaCorrecta = respuestaCorrecta;
+        //this.identificador = identificador;
+        this.respuestas = respuestas;
+    }
+
     public String getPregunta() {
         return pregunta;
     }
@@ -31,7 +40,7 @@ public class Inciso {
     public void setPregunta(String pregunta) {
         this.pregunta = pregunta;
     }
-
+/*
     public char getGrado() {
         return grado;
     }
@@ -39,15 +48,15 @@ public class Inciso {
     public void setGrado(char grado) {
         this.grado = grado;
     }
-
-    public int getRespuestCorrecta() {
-        return respuestCorrecta;
+*/
+    public int getRespuestaCorrecta() {
+        return respuestaCorrecta;
     }
 
-    public void setRespuestCorrecta(int respuestCorrecta) {
-        this.respuestCorrecta = respuestCorrecta;
+    public void setRespuestaCorrecta(int respuestCorrecta) {
+        this.respuestaCorrecta = respuestCorrecta;
     }
-
+/*
     public int getIdentificador() {
         return identificador;
     }
@@ -55,7 +64,7 @@ public class Inciso {
     public void setIdentificador(int identificador) {
         this.identificador = identificador;
     }
-
+*/
     public List<String> getRespuestas() {
         return respuestas;
     }
