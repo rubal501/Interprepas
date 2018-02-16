@@ -23,28 +23,25 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace pref="45" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                      <Component id="buttRegresar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                      <Component id="buttSiguientePregunta" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                      <Component id="buttFinalizarCreacion" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="jPanel1" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace pref="44" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="buttRegresar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+              <Component id="buttAgregarInciso" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+              <Component id="buttFinalizarCreacion" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -53,15 +50,15 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+              <EmptySpace pref="52" max="32767" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="separate" pref="70" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="buttRegresar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="buttSiguientePregunta" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="buttFinalizarCreacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttRegresar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttAgregarInciso" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="32" max="32767" attributes="0"/>
+              <EmptySpace pref="60" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -80,41 +77,34 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="lblRespuestaCorrecta" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblTextoPregunta" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="txtTextoPregunta" min="-2" pref="221" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblPrimeraRespuesta" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtTextoPrimeraRespuesta" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblTerceraRespuesta" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="txtTextoTerceraRespuesta" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblCuartaRespuesta" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="txtTextoCuartaRespuesta" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblRespuestaCorrecta" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblSegundaRespuesta" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtTextoSegundaRespuesta" max="32767" attributes="0"/>
+                  <Component id="cmbRespuestaCorrecta" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="lblTextoPregunta" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblPrimeraRespuesta" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblSegundaRespuesta" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTerceraRespuesta" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblCuartaRespuesta" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="txtPregunta" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="txtPrimeraRespuesta" alignment="0" min="-2" pref="325" max="-2" attributes="0"/>
+                              <Component id="txtSegundaRespuesta" min="-2" pref="325" max="-2" attributes="0"/>
+                              <Component id="txtTerceraRespuesta" min="-2" pref="325" max="-2" attributes="0"/>
+                              <Component id="txtCuartaRespuesta" min="-2" pref="325" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="0" pref="43" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="28" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -122,54 +112,45 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="txtPregunta" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblTextoPregunta" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtTextoPregunta" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblPrimeraRespuesta" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtTextoPrimeraRespuesta" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtPrimeraRespuesta" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblSegundaRespuesta" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
-                      <Component id="txtTextoSegundaRespuesta" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtSegundaRespuesta" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblTerceraRespuesta" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtTextoTerceraRespuesta" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtTerceraRespuesta" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblCuartaRespuesta" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtTextoCuartaRespuesta" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtCuartaRespuesta" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace pref="18" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblRespuestaCorrecta" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cmbRespuestaCorrecta" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="0" pref="23" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lblTextoPregunta">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="14" style="0"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Texto pregunta:"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="lblSegundaRespuesta">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Segunda Respuesta"/>
+            <Property name="text" type="java.lang.String" value="b)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblPrimeraRespuesta">
@@ -177,15 +158,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Primera Respuesta:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblTerceraRespuesta">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="14" style="0"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Tercera Respuesta"/>
+            <Property name="text" type="java.lang.String" value="a)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblCuartaRespuesta">
@@ -193,8 +166,27 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Cuarta Respuesta"/>
+            <Property name="text" type="java.lang.String" value="d)"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtPregunta">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPreguntaActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblTerceraRespuesta">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="c)"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtPrimeraRespuesta">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtSegundaRespuesta">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtCuartaRespuesta">
         </Component>
         <Component class="javax.swing.JLabel" name="lblRespuestaCorrecta">
           <Properties>
@@ -204,39 +196,36 @@
             <Property name="text" type="java.lang.String" value="Respuesta correcta"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtTextoPregunta">
+        <Component class="javax.swing.JTextField" name="txtTerceraRespuesta">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTextoPreguntaActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTerceraRespuestaActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtTextoPrimeraRespuesta">
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtTextoSegundaRespuesta">
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtTextoTerceraRespuesta">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTextoTerceraRespuestaActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtTextoCuartaRespuesta">
-        </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JComboBox" name="cmbRespuestaCorrecta">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+                <StringItem index="0" value="a"/>
+                <StringItem index="1" value="b"/>
+                <StringItem index="2" value="c"/>
+                <StringItem index="3" value="d"/>
               </StringArray>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbRespuestaCorrectaActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblTextoPregunta">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Pregunta: "/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
@@ -245,20 +234,26 @@
         <Property name="text" type="java.lang.String" value="Regresar"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="buttSiguientePregunta">
+    <Component class="javax.swing.JButton" name="buttAgregarInciso">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Siguiente"/>
+        <Property name="text" type="java.lang.String" value="Agregar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttAgregarIncisoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="buttFinalizarCreacion">
       <Properties>
         <Property name="text" type="java.lang.String" value="Finalizar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttFinalizarCreacionActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Noto Sans" size="18" style="0"/>
+          <Font name="Noto Sans" size="24" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Creacion de Examen"/>
       </Properties>
