@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  *
  * @author rubal y ale >:(
  * NOTA IMPORTANTE
- * El orden de los datos en la database es el siguiente:
+ * El  orden de los datos en la database es el siguiente:
  * identificador int(1), textoPregunta char(200), primerRespuesta char(130), 
  * segundaRespuesta char(130),terceraRespuesta char(130),
  * ,cuartaRespuesta char(130), respuestaCorrecta int(1), grado char(1),
@@ -35,8 +35,8 @@ public class ExamenControlador {
     public static void GuardarRegistroBD(Inciso inciso){
        
         sql="insert into incisos values('"+inciso.identificador+"','"+inciso.pregunta+
-                "','"+inciso.respuestas.get(0)+"','"+inciso.respuestas.get(1)+""
-                + ",'"+inciso.respuestas.get(2)+""+ ",'"+inciso.respuestas.get(3)+""
+                "','"+inciso.getRespuestaPrimera()+"','"+inciso.getRespuestaSegunda()+""
+                + ",'"+inciso.getRespuestaTercera()+""+ ",'"+inciso.getRespuestaCuarta()+""
                 + " ,'"+inciso.pregunta+"','"+inciso.pregunta+"',)";
        if(Conexion.ejecutarSQL(sql)){
             JOptionPane.showMessageDialog(null, "Se ha agregado correctamente al inciso");
@@ -44,7 +44,7 @@ public class ExamenControlador {
     }
     public static Inciso BorrarBD(Inciso inciso){
        
-        sql="delete from incisos where nocta='"+inciso.identificador+"'";
+        sql="delete from incisos where claveAsignatura='"+inciso.identificador+"'";
         if(inciso.identificador.isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Ya no hay registros o registro en blanco");
@@ -63,8 +63,8 @@ public class ExamenControlador {
         for(int i=0;i<registro.size();i++)
         {
             inciso=(Inciso) registro.get(i);
-            Linea2=inciso.identificador+" "+inciso.respuestas.get(0)+" "+inciso.respuestas.get(1)+" "+inciso.respuestas.get(2)+" "
-          +inciso.respuestas.get(3)+" "+inciso.respuestaCorrecta + " "+  inciso.asignatura +" "+ inciso.grado;
+            Linea2=inciso.identificador+" "+inciso.getRespuestaPrimera()+" "+inciso.getRespuestaSegunda()+" "+inciso.getRespuestaTercera()+" "
+          +inciso.getRespuestaCuarta()+" "+inciso.respuestaCorrecta + " "+  inciso.asignatura +" "+ inciso.grado;
             
             
             
@@ -84,13 +84,13 @@ public class ExamenControlador {
             if(resultado.first()) //primero sin if y sin el else ;)
             {
             inciso.identificador=resultado.getString("identificador");
-            inciso.respuestas.set(0, resultado.getString("primeraRespuesta"));
-            inciso.respuestas.set(1, resultado.getString("segundaRespuesta"));
-            inciso.respuestas.set(2, resultado.getString("terceraRespuesta"));
-            inciso.respuestas.set(3, resultado.getString("cuartaRespuesta"));
-            inciso.respuestaCorrecta =resultado.getInt("apmat");
-            inciso.asignatura=resultado.getString("nocta");
-            inciso.grado = resultado.getString("nocta").charAt(0);
+            inciso.setRespuestaPrimera(resultado.getString("primeraRespuesta"));
+            inciso.setRespuestaSegunda(resultado.getString("segundaRespuesta"));
+            inciso.setRespuestaTercera(resultado.getString("terceraRespuesta"));
+            inciso.setRespuestaCuarta( resultado.getString("cuartaRespuesta"));
+            inciso.respuestaCorrecta =resultado.getInt("respuestaCorrecta");
+            inciso.asignatura=resultado.getString("claveAsignatura");
+            inciso.grado = resultado.getString("claveAsignatura").charAt(0);
 //            TODO
 //            utilizar setter y getters
             }
@@ -98,10 +98,10 @@ public class ExamenControlador {
             {
                 JOptionPane.showMessageDialog(null, "No hay ningún registro :P");
                 inciso.identificador= "" ;
-            inciso.respuestas.set(0, "");
-            inciso.respuestas.set(1, "");
-            inciso.respuestas.set(2, "");
-            inciso.respuestas.set(3, "");
+            inciso.setRespuestaPrimera( "");
+            inciso.setRespuestaSegunda( "");
+            inciso.setRespuestaTercera( "");
+            inciso.setRespuestaCuarta( "");
             inciso.respuestaCorrecta = 0 ;
             inciso.asignatura= "";
             inciso.grado = '\0';
@@ -124,13 +124,13 @@ public class ExamenControlador {
             {
             resultado.next();
             inciso.identificador=resultado.getString("identificador");
-            inciso.respuestas.set(0, resultado.getString("primeraRespuesta"));
-            inciso.respuestas.set(1, resultado.getString("segundaRespuesta"));
-            inciso.respuestas.set(2, resultado.getString("terceraRespuesta"));
-            inciso.respuestas.set(3, resultado.getString("cuartaRespuesta"));
-            inciso.respuestaCorrecta =resultado.getInt("apmat");
-            inciso.asignatura=resultado.getString("nocta");
-            inciso.grado = resultado.getString("dasd").charAt(0);
+            inciso.setRespuestaPrimera( resultado.getString("primeraRespuesta"));
+            inciso.setRespuestaSegunda( resultado.getString("segundaRespuesta"));
+            inciso.setRespuestaTercera( resultado.getString("terceraRespuesta"));
+            inciso.setRespuestaCuarta( resultado.getString("cuartaRespuesta"));
+            inciso.respuestaCorrecta =resultado.getInt("respuestaCorrecta");
+            inciso.asignatura=resultado.getString("claveAsignatura");
+            inciso.grado = resultado.getString("grado").charAt(0);
             }
         
         }
@@ -152,13 +152,13 @@ public class ExamenControlador {
             {
             resultado.previous();
             inciso.identificador=resultado.getString("identificador");
-            inciso.respuestas.set(0, resultado.getString("primeraRespuesta"));
-            inciso.respuestas.set(1, resultado.getString("segundaRespuesta"));
-            inciso.respuestas.set(2, resultado.getString("terceraRespuesta"));
-            inciso.respuestas.set(3, resultado.getString("cuartaRespuesta"));
-            inciso.respuestaCorrecta =resultado.getInt("apmat");
-            inciso.asignatura=resultado.getString("nocta");
-            inciso.grado = resultado.getString("sdweeq").charAt(0);
+            inciso.setRespuestaPrimera( resultado.getString("primeraRespuesta"));
+            inciso.setRespuestaSegunda( resultado.getString("segundaRespuesta"));
+            inciso.setRespuestaTercera( resultado.getString("terceraRespuesta"));
+            inciso.setRespuestaCuarta( resultado.getString("cuartaRespuesta"));
+            inciso.respuestaCorrecta =resultado.getInt("respuestaCorrecta");
+            inciso.asignatura=resultado.getString("claveAsignatura");
+            inciso.grado = resultado.getString("grado").charAt(0);
             }
         
         }

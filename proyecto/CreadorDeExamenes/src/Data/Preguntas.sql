@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `incisos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `incisos` (
-  `identidicador` char(4) DEFAULT NULL,
+  `identificador` char(4) DEFAULT NULL,
   `textoPregunta` char(200) DEFAULT NULL,
   `primeraRespuesta` char(130) DEFAULT NULL,
   `segundaRespuesta` char(130) DEFAULT NULL,
@@ -43,7 +43,6 @@ LOCK TABLES `incisos` WRITE;
 /*!40000 ALTER TABLE `incisos` DISABLE KEYS */;
 INSERT INTO `incisos` VALUES ('1111','Masa del sol?','seul','32','Dinamarca','otto von shenider',2,'6','1400'),('1112','Masa del sol?','seul','32','Dinamarca','otto von shenider',1,'6','1400');
 /*!40000 ALTER TABLE `incisos` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

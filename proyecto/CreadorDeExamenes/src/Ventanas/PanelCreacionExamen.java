@@ -248,15 +248,19 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
         }
         
         String pregunta = txtPregunta.getText();
-        List<String> respuestas = new ArrayList<String>();
+         String respuestaPrimera;
+     String respuestaSegunda;
+     String respuestaTercera;
+    String respuestaCuarta;
         int respuestaCorrecta = cmbRespuestaCorrecta.getSelectedIndex();
         
-        respuestas.add(txtPrimeraRespuesta.getText());
-        respuestas.add(txtSegundaRespuesta.getText());
-        respuestas.add(txtTerceraRespuesta.getText());
-        respuestas.add(txtCuartaRespuesta.getText());
+        respuestaPrimera = txtPrimeraRespuesta.getText();
+        respuestaSegunda = txtSegundaRespuesta.getText();
+        respuestaTercera = txtTerceraRespuesta.getText();
+        respuestaCuarta = txtCuartaRespuesta.getText();
         
-        Inciso inciso = new Inciso (pregunta, respuestaCorrecta, respuestas);
+        Inciso inciso = new Inciso (pregunta, respuestaCorrecta,
+        respuestaPrimera,  respuestaSegunda,respuestaTercera , respuestaCuarta);
         ExamenControlador.GuardarRegistro(inciso);
         
         for (JTextField campoDeTexto : camposDeTexto)
