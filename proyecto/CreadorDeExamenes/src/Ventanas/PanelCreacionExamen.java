@@ -8,9 +8,11 @@ package Ventanas;
 import Negocio.Controlador.Conexion;
 import Negocio.Controlador.ExamenControlador;
 import Negocio.Modelo.Inciso;
-import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JTextField;
 import javax.swing.JOptionPane;
@@ -190,20 +192,18 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(73, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(108, 108, 108)
-                        .addComponent(jLabel1)))
-                .addContainerGap(74, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(buttContestar)
-                .addGap(32, 32, 32)
-                .addComponent(buttAgregarInciso)
-                .addGap(32, 32, 32)
-                .addComponent(buttSalir)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(buttContestar)
+                        .addGap(32, 32, 32)
+                        .addComponent(buttAgregarInciso)
+                        .addGap(32, 32, 32)
+                        .addComponent(buttSalir)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -259,10 +259,21 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
         respuestaTercera = txtTerceraRespuesta.getText();
         respuestaCuarta = txtCuartaRespuesta.getText();
         
+<<<<<<< HEAD
         Inciso inciso = new Inciso (pregunta, respuestaCorrecta,
         respuestaPrimera,  respuestaSegunda,respuestaTercera , respuestaCuarta);
         ExamenControlador.GuardarRegistro(inciso);
         
+=======
+        try {
+            Inciso inciso = new Inciso (pregunta, respuestaCorrecta, respuestas);
+            ExamenControlador.GuardarRegistroBD(inciso);
+            JOptionPane.showMessageDialog(null, "Se ha agregado correctamente al inciso");  
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "No se pudo agregar el inciso debido a un error interno, intentelo más tarde");
+        }
+              
+>>>>>>> Alejandro2
         for (JTextField campoDeTexto : camposDeTexto)
             campoDeTexto.setText("");
     }//GEN-LAST:event_buttAgregarIncisoActionPerformed
@@ -298,37 +309,50 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PanelCreacionExamen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PanelCreacionExamen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PanelCreacionExamen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PanelCreacionExamen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PanelCreacionExamen().setVisible(true);
+            /* Set the Nimbus look and feel */
+            //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+            /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+            * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+            */
+            try {
+                for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                    if ("Nimbus".equals(info.getName())) {
+                        javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                        break;
+                    }
+                }
+            } catch (ClassNotFoundException ex) {
+                java.util.logging.Logger.getLogger(PanelCreacionExamen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            } catch (InstantiationException ex) {
+                java.util.logging.Logger.getLogger(PanelCreacionExamen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                java.util.logging.Logger.getLogger(PanelCreacionExamen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+                java.util.logging.Logger.getLogger(PanelCreacionExamen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }
-        });
-        
-        Conexion.crearConexion();
+            //</editor-fold>
+            
+            /* Create and display the form */
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    new PanelCreacionExamen().setVisible(true);
+                }
+            });
+            
+        try {
+            Conexion.crearConexion();
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println("a");
+        }
+        /*
+        try {
+            Conexion.ejecutarSQL("insert into incisos values(\"1114\", \"preg\","
+                                 + "\"r1\", \"r2\", \"r3\", \"r4\", \"1\", "
+                                 + "\"6\", \"1402\")");
+        } catch (SQLException ex) {
+            System.out.println("z");
+        }*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
