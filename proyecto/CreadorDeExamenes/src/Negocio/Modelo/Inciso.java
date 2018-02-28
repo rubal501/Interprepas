@@ -29,7 +29,7 @@ public class Inciso {
         this.pregunta = pregunta;
         //this.grado = grado;
         this.respuestaCorrecta = respuestaCorrecta;
-        //this.identificador = identificador;
+        this.identificador = "1058";
         this.respuestas = respuestas;
     }
 
