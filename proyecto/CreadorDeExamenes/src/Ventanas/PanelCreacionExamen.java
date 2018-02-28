@@ -64,6 +64,10 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
         buttAgregarInciso = new javax.swing.JButton();
         buttSalir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        cmbAsignatura = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        lblGrado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -187,6 +191,20 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
         jLabel1.setText("Creacion de Examen");
 
+        jLabel2.setText("Asignatura:");
+
+        cmbAsignatura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--", "1400 - Matemáticas IV", "1401 - Geografía", "1402 - Historia Universal", "1500 - Matemáticas V", "1501 - Biología", "1502 - Historia de México", "1600 - Matemáticas VI", "1601 - Derecho", "1602 - Química" }));
+        cmbAsignatura.setToolTipText("");
+        cmbAsignatura.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbAsignaturaItemStateChanged(evt);
+            }
+        });
+
+        jLabel3.setText("Grado:");
+
+        lblGrado.setText("-");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -197,28 +215,47 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(108, 108, 108)
-                        .addComponent(jLabel1))
+                        .addComponent(jLabel1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cmbAsignatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(74, 74, 74)
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblGrado)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(buttContestar)
-                        .addGap(32, 32, 32)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(buttAgregarInciso)
-                        .addGap(32, 32, 32)
-                        .addComponent(buttSalir)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(91, 91, 91)
+                        .addComponent(buttSalir)
+                        .addGap(39, 39, 39))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(64, Short.MAX_VALUE)
+                .addContainerGap(61, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(32, 32, 32)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttSalir)
+                    .addComponent(jLabel2)
+                    .addComponent(cmbAsignatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(lblGrado))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttAgregarInciso)
                     .addComponent(buttContestar)
-                    .addComponent(buttAgregarInciso))
-                .addContainerGap(91, Short.MAX_VALUE))
+                    .addComponent(buttSalir))
+                .addGap(24, 24, 24))
         );
 
         pack();
@@ -240,12 +277,22 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
     }//GEN-LAST:event_buttSalirActionPerformed
 
     private void buttAgregarIncisoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttAgregarIncisoActionPerformed
+        //si falta alguna cosa por llenar
         for (JTextField campoDeTexto : camposDeTexto) {
-            if (campoDeTexto.getText().equals("")) {
+            if (campoDeTexto.getText().equals("")  || cmbAsignatura.getSelectedIndex() == 0) {
                 JOptionPane.showMessageDialog(null, "Faltan campos por llenar.");
                 return;
             }
         }
+        
+        //si el formato del elemento seleccionado de cmbAsignatura es correcto
+        char grado;
+        String claveAsignatura;
+        String asignatura;
+
+        asignatura = (String)cmbAsignatura.getSelectedItem();
+        grado = asignatura.charAt(1);
+        lblGrado.setText(String.valueOf(grado - 48));
         
         String pregunta = txtPregunta.getText();
         List<String> respuestas = new ArrayList<String>();
@@ -256,8 +303,10 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
         respuestas.add(txtTerceraRespuesta.getText());
         respuestas.add(txtCuartaRespuesta.getText());
         
+        claveAsignatura = asignatura.substring(0, 4);
+        
         try {
-            Inciso inciso = new Inciso (pregunta, respuestaCorrecta, respuestas);
+            Inciso inciso = new Inciso (pregunta, grado, respuestaCorrecta, respuestas, claveAsignatura);
             ExamenControlador.GuardarRegistroBD(inciso);
             JOptionPane.showMessageDialog(null, "Se ha agregado correctamente al inciso");  
         } catch (SQLException ex) {
@@ -294,6 +343,15 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
         ExamenAlumno ventana = new ExamenAlumno();
         ventana.setVisible(true);
     }//GEN-LAST:event_buttContestarActionPerformed
+
+    private void cmbAsignaturaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbAsignaturaItemStateChanged
+        String asignatura = (String)cmbAsignatura.getSelectedItem();
+        char grado = asignatura.charAt(1);
+        if ((int)grado != 45)
+            lblGrado.setText(String.valueOf(grado - 48));
+        else
+            lblGrado.setText("--");
+    }//GEN-LAST:event_cmbAsignaturaItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -349,10 +407,14 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
     private javax.swing.JButton buttAgregarInciso;
     private javax.swing.JButton buttContestar;
     private javax.swing.JButton buttSalir;
+    private javax.swing.JComboBox<String> cmbAsignatura;
     private javax.swing.JComboBox<String> cmbRespuestaCorrecta;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCuartaRespuesta;
+    private javax.swing.JLabel lblGrado;
     private javax.swing.JLabel lblPrimeraRespuesta;
     private javax.swing.JLabel lblRespuestaCorrecta;
     private javax.swing.JLabel lblSegundaRespuesta;

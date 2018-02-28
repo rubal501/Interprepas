@@ -25,12 +25,13 @@ public class Inciso {
         respuestas = new ArrayList<String>();
     }
 
-    public Inciso(String pregunta, /*char grado,*/ int respuestaCorrecta, /*int identificador,*/ List<String> respuestas) {
+    public Inciso(String pregunta, char grado, int respuestaCorrecta, List<String> respuestas, String asignatura) {
         this.pregunta = pregunta;
-        //this.grado = grado;
+        this.grado = grado;
         this.respuestaCorrecta = respuestaCorrecta;
         this.identificador = "1058";
         this.respuestas = respuestas;
+        this.asignatura = asignatura;
     }
 
     public String getPregunta() {
@@ -40,7 +41,7 @@ public class Inciso {
     public void setPregunta(String pregunta) {
         this.pregunta = pregunta;
     }
-/*
+    
     public char getGrado() {
         return grado;
     }
@@ -48,7 +49,6 @@ public class Inciso {
     public void setGrado(char grado) {
         this.grado = grado;
     }
-*/
     public int getRespuestaCorrecta() {
         return respuestaCorrecta;
     }
@@ -72,5 +72,15 @@ public class Inciso {
     public void setRespuestas(List<String> respuestas) {
         this.respuestas = respuestas;
     }
+
+    public String getAsignatura() {
+        return asignatura;
+    }
+
+    public void setAsignatura(String asignatura) {
+        this.asignatura = asignatura;
+    }
+    
+    
     
 }

@@ -39,7 +39,8 @@ public class ExamenControlador {
         sql = "insert into incisos values(\""+i.identificador+"\", \""+i.pregunta
                +"\", \""+i.respuestas.get(0)+"\", \""+i.respuestas.get(1)
                +"\", \""+i.respuestas.get(2)+"\", \""+i.respuestas.get(3) 
-               +"\", \""+i.getRespuestaCorrecta()+"\", \"6\", \"1408\")";
+               +"\", \""+i.getRespuestaCorrecta()+"\", \""+i.getGrado()
+               +"\", \""+i.getAsignatura()+"\")";
         
         System.out.println(sql);
         
