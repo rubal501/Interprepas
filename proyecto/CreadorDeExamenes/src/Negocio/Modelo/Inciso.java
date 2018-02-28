@@ -22,7 +22,7 @@ public class Inciso {
     public List<String> respuestas;
 
     public Inciso() {
-        respuestas = new ArrayList<String>();
+        respuestas = new ArrayList<String>(4);
     }
 
     public Inciso(String pregunta, /*char grado,*/ int respuestaCorrecta, /*int identificador,*/ List<String> respuestas) {

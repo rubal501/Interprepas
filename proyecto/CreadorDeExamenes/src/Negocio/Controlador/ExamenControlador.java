@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  *
  * @author rubal
  * NOTA IMPORTANTE
- * El orden de los datos en la database es el siguiente:
+ * El  orden de los datos en la database es el siguiente:
  * identificador int(1), textoPregunta char(200), primerRespuesta char(130), 
  * segundaRespuesta char(130),terceraRespuesta char(130),
  * ,cuartaRespuesta char(130), respuestaCorrecta int(1), grado char(1),
