@@ -5,8 +5,10 @@
  */
 package Ventanas;
 
+import Negocio.Controlador.Conexion;
 import Negocio.Controlador.ExamenControlador;
 import Negocio.Modelo.Inciso;
+import java.sql.ResultSet;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -321,6 +323,8 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
                 new PanelCreacionExamen().setVisible(true);
             }
         });
+        
+        Conexion.crearConexion();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

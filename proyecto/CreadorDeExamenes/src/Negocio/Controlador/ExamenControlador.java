@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author rubal
+ * @author rubal y ale >:(
  * NOTA IMPORTANTE
  * El  orden de los datos en la database es el siguiente:
  * identificador int(1), textoPregunta char(200), primerRespuesta char(130), 
@@ -37,7 +37,7 @@ public class ExamenControlador {
         sql="insert into incisos values('"+inciso.identificador+"','"+inciso.pregunta+
                 "','"+inciso.respuestas.get(0)+"','"+inciso.respuestas.get(1)+""
                 + ",'"+inciso.respuestas.get(2)+""+ ",'"+inciso.respuestas.get(3)+""
-                + " ,'"+inciso.pregunta+"',,'"+inciso.pregunta+"',)";
+                + " ,'"+inciso.pregunta+"','"+inciso.pregunta+"',)";
        if(Conexion.ejecutarSQL(sql)){
             JOptionPane.showMessageDialog(null, "Se ha agregado correctamente al inciso");
         }
