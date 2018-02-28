@@ -19,18 +19,26 @@ public class Inciso {
     public int respuestaCorrecta; //index de la respuesta correcta (0-3)
     public String identificador;
     public String asignatura ;
-    public List<String> respuestas;
+    public String respuestaPrimera;
+    public String respuestaSegunda;
+    public String respuestaTercera;
+    public String respuestaCuarta;
 
     public Inciso() {
-        respuestas = new ArrayList<String>(4);
+        
     }
 
-    public Inciso(String pregunta, /*char grado,*/ int respuestaCorrecta, /*int identificador,*/ List<String> respuestas) {
+    public Inciso(String pregunta, /*char grado,*/ int respuestaCorrecta, /*int identificador,*/
+            String respuestaPrimera, String respuestaSegunda, String respuestaTercera ,String respuestaCuarta ) {
         this.pregunta = pregunta;
         //this.grado = grado;
         this.respuestaCorrecta = respuestaCorrecta;
         //this.identificador = identificador;
-        this.respuestas = respuestas;
+        this.respuestaPrimera = respuestaPrimera ;
+        this.respuestaSegunda = respuestaSegunda;
+        this.respuestaTercera =  respuestaTercera;
+        this.respuestaCuarta = respuestaCuarta;
+        
     }
 
     public String getPregunta() {
@@ -65,12 +73,39 @@ public class Inciso {
         this.identificador = identificador;
     }
 */
-    public List<String> getRespuestas() {
-        return respuestas;
+
+    public String getRespuestaPrimera() {
+        return respuestaPrimera;
     }
 
-    public void setRespuestas(List<String> respuestas) {
-        this.respuestas = respuestas;
+    public String getRespuestaSegunda() {
+        return respuestaSegunda;
     }
+
+    public String getRespuestaTercera() {
+        return respuestaTercera;
+    }
+
+    public String getRespuestaCuarta() {
+        return respuestaCuarta;
+    }
+
+    public void setRespuestaPrimera(String respuestaPrimera) {
+        this.respuestaPrimera = respuestaPrimera;
+    }
+
+    public void setRespuestaSegunda(String respuestaSegunda) {
+        this.respuestaSegunda = respuestaSegunda;
+    }
+
+    public void setRespuestaTercera(String respuestaTercera) {
+        this.respuestaTercera = respuestaTercera;
+    }
+
+    public void setRespuestaCuarta(String respuestaCuarta) {
+        this.respuestaCuarta = respuestaCuarta;
+    }
+    
+    
     
 }
