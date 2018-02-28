@@ -80,9 +80,9 @@ public class ExamenControlador {
                 inciso.respuestas.set(1, resultado.getString("segundaRespuesta"));
                 inciso.respuestas.set(2, resultado.getString("terceraRespuesta"));
                 inciso.respuestas.set(3, resultado.getString("cuartaRespuesta"));
-                inciso.respuestaCorrecta = resultado.getInt("apmat");
-                inciso.asignatura = resultado.getString("nocta");
-                inciso.grado = resultado.getString("nocta").charAt(0);
+                inciso.respuestaCorrecta = resultado.getInt("respuestaCorrecta");
+                inciso.asignatura = resultado.getString("asignatura");
+                inciso.grado = resultado.getString("grado").charAt(0);
 //            TODO
 //            utilizar setter y getters
             } else {

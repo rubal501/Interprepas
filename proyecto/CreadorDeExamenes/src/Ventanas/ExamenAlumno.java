@@ -246,7 +246,7 @@ public class ExamenAlumno extends javax.swing.JFrame {
             Inciso inciso = ExamenControlador.SiguienteBD();
             refrescarEtiquetas(inciso);
         } catch (HeadlessException | SQLException ex) {
-            System.out.println("c");
+            System.out.println(ex.getMessage());
         }
     }//GEN-LAST:event_buttSiguienteActionPerformed
 
