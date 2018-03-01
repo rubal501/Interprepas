@@ -25,6 +25,7 @@ import javax.swing.JTextField;
  */
 public class ExamenAlumno extends javax.swing.JFrame {
 
+    
     /**
      * Creates new form ExamenAlumno
      */
