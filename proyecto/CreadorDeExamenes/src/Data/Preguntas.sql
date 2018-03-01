@@ -42,7 +42,7 @@ CREATE TABLE `incisos` (
 
 LOCK TABLES `incisos` WRITE;
 /*!40000 ALTER TABLE `incisos` DISABLE KEYS */;
-INSERT INTO `incisos` VALUES (1058,'marco?','polo','don','as','fadfas',0,'4','null'),(1111,'Masa del sol?','seul','32','Dinamarca','otto von shenider',2,'6','1400'),(1113,'Masa de tijuana?','seul','32','Dinamarca','otto von shenider',2,'6','1400'),(1114,'Masa de tijuana?','lorem','ipsum','er','asdasd',2,'6','1400'),(1115,'asdasd','asdsadsad','asdasdas','dasdasd','dsadasdasdas',1,'4','1401'),(1116,'dasdsadsad','asdsadas','dsadasdas','dasdsadasd','sadsadasfgethhhrewtrgsfg',1,'6','1602');
+INSERT INTO `incisos` VALUES (1058,'¿Cual es la capital de Portugal?','Lisoba','Madrid','Paris','Berlin',0,'4','null'),(1111,'Masa del sol?','seul','32','Dinamarca','otto von shenider',2,'6','1400'),(1113,'Masa de tijuana?','seul','32','Dinamarca','otto von shenider',2,'6','1400'),(1114,'Masa de tijuana?','lorem','ipsum','er','asdasd',2,'6','1400'),(1115,'asdasd','asdsadsad','asdasdas','dasdasd','dsadasdasdas',1,'4','1401'),(1116,'dasdsadsad','asdsadas','dsadasdas','dasdsadasd','sadsadasfgethhhrewtrgsfg',1,'6','1602');
 /*!40000 ALTER TABLE `incisos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
