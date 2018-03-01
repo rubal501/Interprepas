@@ -305,9 +305,6 @@ public class ExamenAlumno extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_buttSiguienteActionPerformed
 
-    /**
-     * @param args los argumentos dados de la linea de comando
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
