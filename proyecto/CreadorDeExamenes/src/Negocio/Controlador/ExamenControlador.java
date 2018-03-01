@@ -1,8 +1,3 @@
- /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Negocio.Controlador;
 
 import Negocio.Modelo.Examen;
@@ -14,27 +9,20 @@ import java.util.Vector;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author rubal y ale >:( NOTA IMPORTANTE El orden de los datos en la database
- * es el siguiente: identificador int(1), textoPregunta char(200),
- * primerRespuesta char(130), segundaRespuesta char(130),terceraRespuesta
- * char(130), ,cuartaRespuesta char(130), respuestaCorrecta int(1), grado
- * char(1), claveAsignatura char(4)
+ * @author AlRu
  */
 public class ExamenControlador {
-
     static String sql;
     static ResultSet resultado;
     static Examen registroFinal = new Examen();
     static Vector registro = new Vector();
     static Inciso inciso = new Inciso();
 
-    public static void GuardarRegistro(Inciso inciso) {
-        if (registro.add(inciso)) {
-            JOptionPane.showMessageDialog(null, "Se ha agregado correctamente al inciso");
-        }
-    }
-
+    /**
+     * Agrega un registro en la base de datos con la informacion de un inciso
+     * @param i el inciso que contiene la informacion
+     * @throws SQLException si hubo un error al ejecutar el comando sql
+     */
     public static void GuardarRegistroBD(Inciso i) throws SQLException {
         sql = "insert into incisos (textoPregunta, primeraRespuesta, segundaRespuesta,"
                 + "terceraRespuesta, cuartaRespuesta, respuestaCorrecta, grado,"
@@ -50,25 +38,13 @@ public class ExamenControlador {
             throw ex;
         }
     }
-/*
-    public static Inciso BorrarBD(Inciso inciso) throws SQLException {
 
-        sql = "delete from incisos where nocta='" + inciso.identificador + "'";
-        if (inciso.identificador.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ya no hay registros o registro en blanco");
-        } else {
-            if (Conexion.ejecutarSQL(sql)) {
-                JOptionPane.showMessageDialog(null, "Se ha eliminado correctamente al inciso");
-                inciso = CargarRegistrosBD();
-            }
-        }
-        return inciso;
-    }
-*/
-    //public static String MostrarRegistros() 
-
-    public static Inciso CargarRegistrosBD() throws HeadlessException, SQLException {
-
+    /**
+     * Carga los registros de la base de datos
+     * @return el inciso con los datos del registro seleccionado de la base de datos 
+     * @throws SQLException si hubo un error al ejecutar el comando sql
+     */
+    public static Inciso CargarRegistrosBD() throws SQLException {
         sql = "select * from incisos";
 
         try {
@@ -94,13 +70,19 @@ public class ExamenControlador {
                 inciso.asignatura = "";
                 inciso.grado = '\0';
             }
-        } catch (HeadlessException | SQLException ex) {
+        } catch (SQLException ex) {
             throw ex;
         }
         return inciso;
     }
 
-    public static Inciso SiguienteBD() throws HeadlessException, SQLException, IndexOutOfBoundsException {
+    /**
+     * Carga el siguiente registro de la base de datos
+     * @return el inciso con la informacion del registro correspondiente
+     * @throws SQLException si hubo un error al ejecutar el comando sql
+     * @throws IndexOutOfBoundsException si se está en el último registro de la base de datos
+     */
+    public static Inciso SiguienteBD() throws SQLException, IndexOutOfBoundsException {
         try {
             if (resultado.isLast()) {
                 throw new IndexOutOfBoundsException();
@@ -118,13 +100,18 @@ public class ExamenControlador {
                 inciso.grado = resultado.getString("grado").charAt(0);
             }
 
-        } catch (HeadlessException | SQLException | IndexOutOfBoundsException ex) {
+        } catch (SQLException | IndexOutOfBoundsException ex) {
             throw ex;
         }
         return inciso;
     }
 
-    public static Inciso AnteriorBD() throws HeadlessException, SQLException {
+    /**
+     * Carga el registro anterior de la base de datos
+     * @return el inciso con la informacion del registro correspondiente
+     * @throws SQLException si hubo un error al ejecutar el comando sql
+     */
+    public static Inciso AnteriorBD() throws SQLException {
         try {
             //resultado=Conexion.ejecutarSQLSelect(sql);
             //  while(resultado.);
@@ -144,11 +131,17 @@ public class ExamenControlador {
                 inciso.grado = resultado.getString("grado").charAt(0);
             }
 
-        } catch (HeadlessException | SQLException ex) {
+        } catch (SQLException ex) {
             throw ex;
         }
         return inciso;
     }
-
-    //TODO crear un metodo creador de examenes
 }
+
+/*
+ * Notas:
+ * El orden de los datos en la database: identificador int(1), textoPregunta
+ * char(200), primerRespuesta char(130), segundaRespuesta char(130),
+ * terceraRespuesta char(130), cuartaRespuesta char(130), respuestaCorrecta 
+ * int(1), grado char(1), claveAsignatura char(4)
+ */

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ventanas;
 
 import Negocio.Controlador.Conexion;
@@ -12,22 +7,18 @@ import java.awt.HeadlessException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.swing.JTextField;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author ROOT
+ * @author AlRu
  */
 public class PanelCreacionExamen extends javax.swing.JFrame {
-
     List<JTextField> camposDeTexto;
 
     /**
-     * Creates new form PanelCreacionExamen
+     * Inicializa la ventana y sus componentes
      */
     public PanelCreacionExamen() {
         initComponents();
@@ -263,51 +254,69 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Finaliza el programa
+     */
     private void buttSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttSalirActionPerformed
+        //si algún campo de texto tiene texto y confirma la salida
         for (JTextField campoDeTexto : camposDeTexto) {
             if (!campoDeTexto.getText().equals("")) {
                 int respuestaMensaje = JOptionPane.showConfirmDialog(null, "Se detectaron cambios pendientes. ¿Continuar sin guardar los cambios actuales?", "Cambios detectados", JOptionPane.YES_NO_OPTION);
                 if (respuestaMensaje == JOptionPane.YES_OPTION) {
                     this.dispose();
+                    return;
                 } else {
                     return;
                 }
             }
         }
 
+        //Confirma la salida
         int respuestaMensaje = JOptionPane.showConfirmDialog(null, "¿Salir del programa?", "Confirmar salida", JOptionPane.YES_NO_OPTION);
         if (respuestaMensaje == JOptionPane.YES_OPTION) {
             this.dispose();
         }
     }//GEN-LAST:event_buttSalirActionPerformed
 
+    /**
+     * Agrega un inciso a la base de datos con la información actual dada por el
+     * usuario 
+     */
     private void buttAgregarIncisoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttAgregarIncisoActionPerformed
-        //si falta alguna cosa por llenar
+        //informacion del inciso
+        String pregunta;
+        char grado;
+        int respuestaCorrecta;
+        List<String> respuestas;
+        String claveAsignatura;        
+        String asignatura;
+                
+        //si falta algún campo por llenar
         for (JTextField campoDeTexto : camposDeTexto) {
-            if (campoDeTexto.getText().equals("") || cmbAsignatura.getSelectedIndex() == 0) {
+            if (campoDeTexto.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Faltan campos por llenar.");
                 return;
             }
         }
+        
+        //si falta llenar la caja de asignatura
+        if (cmbAsignatura.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Faltan campos por llenar.");
+            return;
+        }
 
         //si el formato del elemento seleccionado de cmbAsignatura es correcto
-        char grado;
-        String claveAsignatura;
-        String asignatura;
-
-        asignatura = (String) cmbAsignatura.getSelectedItem();
+        asignatura = (String)cmbAsignatura.getSelectedItem();
         grado = asignatura.charAt(1);
         lblGrado.setText(String.valueOf(grado - 48));
 
-        String pregunta = txtPregunta.getText();
-        List<String> respuestas = new ArrayList<String>();
-        int respuestaCorrecta = cmbRespuestaCorrecta.getSelectedIndex();
-
+        pregunta = txtPregunta.getText();
+        respuestaCorrecta = cmbRespuestaCorrecta.getSelectedIndex();
+        respuestas = new ArrayList<String>();
         respuestas.add(txtPrimeraRespuesta.getText());
         respuestas.add(txtSegundaRespuesta.getText());
         respuestas.add(txtTerceraRespuesta.getText());
         respuestas.add(txtCuartaRespuesta.getText());
-
         claveAsignatura = asignatura.substring(0, 4);
 
         try {
@@ -318,9 +327,12 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No se pudo agregar el inciso debido a un error interno, intentelo más tarde");
         }
 
-        for (JTextField campoDeTexto : camposDeTexto) {
+        //regresa los campos de texto las cmb a los valores originales
+        for (JTextField campoDeTexto : camposDeTexto)
             campoDeTexto.setText("");
-        }
+        cmbAsignatura.setSelectedIndex(0);
+        cmbRespuestaCorrecta.setSelectedIndex(0);
+        lblGrado.setText("--");
     }//GEN-LAST:event_buttAgregarIncisoActionPerformed
 
     private void cmbRespuestaCorrectaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRespuestaCorrectaActionPerformed
@@ -335,7 +347,11 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPreguntaActionPerformed
 
+    /**
+     * Te transfiere a la ventana de responder examen
+     */
     private void buttContestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttContestarActionPerformed
+        //verifica si hay algun campo con informacion y confimra la salida
         for (JTextField campoDeTexto : camposDeTexto) {
             if (!campoDeTexto.getText().equals("")) {
                 int respuestaMensaje = JOptionPane.showConfirmDialog(null, "Se detectaron cambios pendientes. ¿Continuar sin guardar los cambios actuales?", "Cambios detectados", JOptionPane.YES_NO_OPTION);
@@ -345,12 +361,12 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
             }
         }
 
-        this.dispose();
-
+        //cierra la ventana actual y crea la ventana de responder examen
         try {
+            this.dispose();
             ExamenAlumno ventana = new ExamenAlumno();
             ventana.setVisible(true);
-        } catch (HeadlessException | SQLException | ClassNotFoundException ex) {
+        } catch (SQLException | ClassNotFoundException ex) {
             PanelCreacionExamen ventana = new PanelCreacionExamen();
             ventana.setVisible(true);
             JOptionPane.showMessageDialog(null, "Hubo un error al cargar la ventana de examen");
@@ -358,6 +374,7 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
     }//GEN-LAST:event_buttContestarActionPerformed
 
     private void cmbAsignaturaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbAsignaturaItemStateChanged
+        //Despliega el grado dependiendo de la asignatura seleccionada
         String asignatura = (String) cmbAsignatura.getSelectedItem();
         char grado = asignatura.charAt(1);
         if ((int) grado != 45) {
@@ -368,7 +385,7 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbAsignaturaItemStateChanged
 
     /**
-     * @param args the command line arguments
+     * @param args los argumentos dados por la linea de comando
      */
     public static void main(String args[]) {
 
@@ -407,14 +424,6 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
         } catch (SQLException | ClassNotFoundException ex) {
             System.out.println("a");
         }
-        /*
-        try {
-            Conexion.ejecutarSQL("insert into incisos values(\"1114\", \"preg\","
-                                 + "\"r1\", \"r2\", \"r3\", \"r4\", \"1\", "
-                                 + "\"6\", \"1402\")");
-        } catch (SQLException ex) {
-            System.out.println("z");
-        }*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Negocio.Controlador;
 
 import java.sql.Connection;
@@ -12,11 +7,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- *
- * @author d204
+ * @author AlRu
  */
 public class Conexion {
-
     static Connection conexionOK;
     static String sql;
 
@@ -27,8 +20,7 @@ public class Conexion {
     /**
      * Método utilizado para establecer la conexión con la base de datos
      *
-     * @return estado regresa el estado de la conexión, true si se estableció la
-     * conexión, falso en caso contrario
+     * @return si se establció la conexión o no
      * @throws SQLException si no se pudo crear la conexion
      * @throws ClassNotFoundException si hay un error al leer el driver de jdbc
      */
@@ -40,12 +32,10 @@ public class Conexion {
         } catch (SQLException | ClassNotFoundException ex) {
             throw ex;
         }
-        
         return true;
     }
 
     /**
-     *
      * Método utilizado para realizar las instrucciones: INSERT, DELETE y UPDATE
      *
      * @param sql Cadena que contiene la instrucción SQL a ejecutar
@@ -60,7 +50,7 @@ public class Conexion {
         } catch (SQLException ex) {
             throw ex;
         }
-
+        
         return true;
     }
 
@@ -81,7 +71,6 @@ public class Conexion {
         } catch (SQLException ex) {
             throw ex;
         }
-
         return resultado;
     }
 }
