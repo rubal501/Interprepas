@@ -143,7 +143,7 @@ public class ExamenAlumno extends javax.swing.JFrame {
                                 .addComponent(radD)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lblD)))))
-                .addContainerGap(223, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,7 +195,7 @@ public class ExamenAlumno extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
@@ -240,6 +240,7 @@ public class ExamenAlumno extends javax.swing.JFrame {
         try {
             inciso = ExamenControlador.AnteriorBD();
             refrescarEtiquetas(inciso);
+            grupoBotones.clearSelection();
         } catch (HeadlessException | SQLException ex) {
             System.out.println(ex.getMessage());
         }
@@ -249,7 +250,8 @@ public class ExamenAlumno extends javax.swing.JFrame {
         try {
             Inciso inciso = ExamenControlador.SiguienteBD();
             refrescarEtiquetas(inciso);
-        } catch (HeadlessException | SQLException ex) {
+            grupoBotones.clearSelection();
+        } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         } catch (IndexOutOfBoundsException ex) {
             int respuestaMensaje = JOptionPane.showConfirmDialog(null, "Última pregunta alcanzada. ¿Proceder a la calificación?", "Finalizar", JOptionPane.YES_NO_OPTION);

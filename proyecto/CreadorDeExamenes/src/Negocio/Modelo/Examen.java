@@ -9,8 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author ROOT
+ * @author AlRu
  */
 public class Examen {
     String claveAsignatura;

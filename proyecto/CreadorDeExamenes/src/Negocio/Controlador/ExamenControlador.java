@@ -31,7 +31,7 @@ public class ExamenControlador {
                +"\", \""+i.respuestas.get(2)+"\", \""+i.respuestas.get(3) 
                +"\", \""+i.getRespuestaCorrecta()+"\", \""+i.getGrado()
                +"\", \""+i.getAsignatura()+"\")";
-        System.out.println(sql);
+        
         try {
             Conexion.ejecutarSQL(sql);
         } catch (SQLException ex) {
