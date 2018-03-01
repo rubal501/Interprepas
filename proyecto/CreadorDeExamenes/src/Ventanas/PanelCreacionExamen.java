@@ -8,6 +8,7 @@ package Ventanas;
 import Negocio.Controlador.Conexion;
 import Negocio.Controlador.ExamenControlador;
 import Negocio.Modelo.Inciso;
+import java.awt.HeadlessException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ import javax.swing.JOptionPane;
  * @author ROOT
  */
 public class PanelCreacionExamen extends javax.swing.JFrame {
+
     List<JTextField> camposDeTexto;
 
     /**
@@ -29,7 +31,7 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
      */
     public PanelCreacionExamen() {
         initComponents();
-        
+
         camposDeTexto = new ArrayList<JTextField>();
         camposDeTexto.add(txtPregunta);
         camposDeTexto.add(txtPrimeraRespuesta);
@@ -265,56 +267,60 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
         for (JTextField campoDeTexto : camposDeTexto) {
             if (!campoDeTexto.getText().equals("")) {
                 int respuestaMensaje = JOptionPane.showConfirmDialog(null, "Se detectaron cambios pendientes. ¿Continuar sin guardar los cambios actuales?", "Cambios detectados", JOptionPane.YES_NO_OPTION);
-                if (respuestaMensaje == JOptionPane.YES_OPTION)
+                if (respuestaMensaje == JOptionPane.YES_OPTION) {
                     this.dispose();
-                else return;
+                } else {
+                    return;
+                }
             }
         }
-        
+
         int respuestaMensaje = JOptionPane.showConfirmDialog(null, "¿Salir del programa?", "Confirmar salida", JOptionPane.YES_NO_OPTION);
-        if (respuestaMensaje == JOptionPane.YES_OPTION)
+        if (respuestaMensaje == JOptionPane.YES_OPTION) {
             this.dispose();
+        }
     }//GEN-LAST:event_buttSalirActionPerformed
 
     private void buttAgregarIncisoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttAgregarIncisoActionPerformed
         //si falta alguna cosa por llenar
         for (JTextField campoDeTexto : camposDeTexto) {
-            if (campoDeTexto.getText().equals("")  || cmbAsignatura.getSelectedIndex() == 0) {
+            if (campoDeTexto.getText().equals("") || cmbAsignatura.getSelectedIndex() == 0) {
                 JOptionPane.showMessageDialog(null, "Faltan campos por llenar.");
                 return;
             }
         }
-        
+
         //si el formato del elemento seleccionado de cmbAsignatura es correcto
         char grado;
         String claveAsignatura;
         String asignatura;
 
-        asignatura = (String)cmbAsignatura.getSelectedItem();
+        asignatura = (String) cmbAsignatura.getSelectedItem();
         grado = asignatura.charAt(1);
         lblGrado.setText(String.valueOf(grado - 48));
-        
+
         String pregunta = txtPregunta.getText();
         List<String> respuestas = new ArrayList<String>();
         int respuestaCorrecta = cmbRespuestaCorrecta.getSelectedIndex();
-        
+
         respuestas.add(txtPrimeraRespuesta.getText());
         respuestas.add(txtSegundaRespuesta.getText());
         respuestas.add(txtTerceraRespuesta.getText());
         respuestas.add(txtCuartaRespuesta.getText());
-        
+
         claveAsignatura = asignatura.substring(0, 4);
-        
+
         try {
-            Inciso inciso = new Inciso (pregunta, grado, respuestaCorrecta, respuestas, claveAsignatura);
+            Inciso inciso = new Inciso(pregunta, grado, respuestaCorrecta, respuestas, claveAsignatura);
             ExamenControlador.GuardarRegistroBD(inciso);
-            JOptionPane.showMessageDialog(null, "Se ha agregado correctamente al inciso");  
+            JOptionPane.showMessageDialog(null, "Se ha agregado correctamente al inciso");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se pudo agregar el inciso debido a un error interno, intentelo más tarde");
         }
-              
-        for (JTextField campoDeTexto : camposDeTexto)
+
+        for (JTextField campoDeTexto : camposDeTexto) {
             campoDeTexto.setText("");
+        }
     }//GEN-LAST:event_buttAgregarIncisoActionPerformed
 
     private void cmbRespuestaCorrectaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRespuestaCorrectaActionPerformed
@@ -333,24 +339,32 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
         for (JTextField campoDeTexto : camposDeTexto) {
             if (!campoDeTexto.getText().equals("")) {
                 int respuestaMensaje = JOptionPane.showConfirmDialog(null, "Se detectaron cambios pendientes. ¿Continuar sin guardar los cambios actuales?", "Cambios detectados", JOptionPane.YES_NO_OPTION);
-                if (respuestaMensaje == JOptionPane.YES_OPTION)
-                    break;
-                else return;
+                if (respuestaMensaje != JOptionPane.YES_OPTION) {
+                    return;
+                }
             }
         }
-        
+
         this.dispose();
-        ExamenAlumno ventana = new ExamenAlumno();
-        ventana.setVisible(true);
+
+        try {
+            ExamenAlumno ventana = new ExamenAlumno();
+            ventana.setVisible(true);
+        } catch (HeadlessException | SQLException | ClassNotFoundException ex) {
+            PanelCreacionExamen ventana = new PanelCreacionExamen();
+            ventana.setVisible(true);
+            JOptionPane.showMessageDialog(null, "Hubo un error al cargar la ventana de examen");
+        }
     }//GEN-LAST:event_buttContestarActionPerformed
 
     private void cmbAsignaturaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbAsignaturaItemStateChanged
-        String asignatura = (String)cmbAsignatura.getSelectedItem();
+        String asignatura = (String) cmbAsignatura.getSelectedItem();
         char grado = asignatura.charAt(1);
-        if ((int)grado != 45)
+        if ((int) grado != 45) {
             lblGrado.setText(String.valueOf(grado - 48));
-        else
+        } else {
             lblGrado.setText("--");
+        }
     }//GEN-LAST:event_cmbAsignaturaItemStateChanged
 
     /**
@@ -358,36 +372,36 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
 
-            /* Set the Nimbus look and feel */
-            //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-            /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
             * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-            */
-            try {
-                for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                    if ("Nimbus".equals(info.getName())) {
-                        javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                        break;
-                    }
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
                 }
-            } catch (ClassNotFoundException ex) {
-                java.util.logging.Logger.getLogger(PanelCreacionExamen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            } catch (InstantiationException ex) {
-                java.util.logging.Logger.getLogger(PanelCreacionExamen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            } catch (IllegalAccessException ex) {
-                java.util.logging.Logger.getLogger(PanelCreacionExamen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-                java.util.logging.Logger.getLogger(PanelCreacionExamen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }
-            //</editor-fold>
-            
-            /* Create and display the form */
-            java.awt.EventQueue.invokeLater(new Runnable() {
-                public void run() {
-                    new PanelCreacionExamen().setVisible(true);
-                }
-            });
-            
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(PanelCreacionExamen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(PanelCreacionExamen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(PanelCreacionExamen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(PanelCreacionExamen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new PanelCreacionExamen().setVisible(true);
+            }
+        });
+
         try {
             Conexion.crearConexion();
         } catch (SQLException | ClassNotFoundException ex) {
