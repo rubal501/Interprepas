@@ -3,7 +3,6 @@ package Ventanas;
 import Negocio.Controlador.Conexion;
 import Negocio.Controlador.ExamenControlador;
 import Negocio.Modelo.Inciso;
-import java.awt.HeadlessException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ArrayList;
@@ -384,9 +383,6 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cmbAsignaturaItemStateChanged
 
-    /**
-     * @param args los argumentos dados por la linea de comando
-     */
     public static void main(String args[]) {
 
         /* Set the Nimbus look and feel */
