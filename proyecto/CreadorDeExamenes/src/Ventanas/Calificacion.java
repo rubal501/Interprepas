@@ -6,8 +6,7 @@
 package Ventanas;
 
 /**
- *
- * @author alehd
+ * @author AlRu
  */
 public class Calificacion extends javax.swing.JFrame {
 
