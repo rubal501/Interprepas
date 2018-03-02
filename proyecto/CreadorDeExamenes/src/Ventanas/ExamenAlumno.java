@@ -7,6 +7,7 @@ package Ventanas;
 
 //nel
 
+import Negocio.Controlador.Conexion;
 import Negocio.Controlador.ExamenControlador;
 import Negocio.Modelo.Examen;
 import Negocio.Modelo.Inciso;
@@ -27,22 +28,28 @@ public class ExamenAlumno extends javax.swing.JFrame {
     /**
      * Creates new form ExamenAlumno
      */
-    public ExamenAlumno() {
+    public ExamenAlumno() throws HeadlessException, SQLException, ClassNotFoundException {
         initComponents();
         
-        conectarBD();
+        try {
+            Conexion.crearConexion();
+            conectarBD();
+        } catch (HeadlessException | SQLException | ClassNotFoundException ex) {
+            this.dispose();
+            throw ex;
+        }
         grupoBotones.add(radA);
         grupoBotones.add(radB);
         grupoBotones.add(radC);
         grupoBotones.add(radD);
     }
     
-    void conectarBD() {
+    void conectarBD() throws HeadlessException, SQLException {
         Inciso inciso = new Inciso();
         try {
             inciso = ExamenControlador.CargarRegistrosBD();
         } catch (HeadlessException | SQLException ex) {
-            System.out.println("a");
+            throw ex;
         }
         refrescarEtiquetas(inciso);
     }
@@ -243,9 +250,9 @@ public class ExamenAlumno extends javax.swing.JFrame {
         Inciso inciso;
         try {
             inciso = ExamenControlador.AnteriorBD();
-        refrescarEtiquetas(inciso);
+            refrescarEtiquetas(inciso);
         } catch (HeadlessException | SQLException ex) {
-            System.out.println("b");
+            System.out.println(ex.getMessage());
         }
     }//GEN-LAST:event_buttAnteriorActionPerformed
 
@@ -288,7 +295,11 @@ public class ExamenAlumno extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ExamenAlumno().setVisible(true);
+                try {
+                    new ExamenAlumno().setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(ExamenAlumno.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -52,16 +52,19 @@ public class ExamenControlador {
                +"\", \""+i.getAsignatura()+"\")";
 
         
+<<<<<<< HEAD
 //        Alejabndro se esta encargando de hacer que los datos dejen de estar fijos
         System.out.println(sql);
 
+=======
+>>>>>>> Alejandro2
         try {
             Conexion.ejecutarSQL(sql);
         } catch (SQLException ex) {
             throw ex;
         }
     }
-
+/*
     public static Inciso BorrarBD(Inciso inciso) throws SQLException {
 
         sql = "delete from incisos where nocta='" + inciso.identificador + "'";
@@ -74,6 +77,7 @@ public class ExamenControlador {
         }
         return inciso;
     }
+<<<<<<< HEAD
 
 
     public static String MostrarRegistros() {
@@ -87,6 +91,10 @@ public class ExamenControlador {
         }
         return Linea;
     }
+=======
+*/
+    //public static String MostrarRegistros() 
+>>>>>>> Alejandro2
 
     public static Inciso CargarRegistrosBD() throws HeadlessException, SQLException {
 
@@ -94,6 +102,7 @@ public class ExamenControlador {
 
         try {
             resultado = Conexion.ejecutarSQLSelect(sql);
+<<<<<<< HEAD
             if (resultado.first()) //primero sin if y sin el else ;)
             {
                
@@ -104,9 +113,19 @@ public class ExamenControlador {
                 inciso.respuestas.set(1, resultado.getString("segundaRespuesta"));
                 inciso.respuestas.set(2, resultado.getString("terceraRespuesta"));
                 inciso.respuestas.set(3, resultado.getString("cuartaRespuesta"));
+=======
+            if (resultado.first()) {
+                inciso.pregunta = resultado.getString("textoPregunta");
+                inciso.identificador = resultado.getString("identificador");
+                inciso.respuestas.add(resultado.getString("primeraRespuesta"));
+                inciso.respuestas.add(resultado.getString("segundaRespuesta"));
+                inciso.respuestas.add(resultado.getString("terceraRespuesta"));
+                inciso.respuestas.add(resultado.getString("cuartaRespuesta"));
+>>>>>>> Alejandro2
                 inciso.respuestaCorrecta = resultado.getInt("respuestaCorrecta");
-                inciso.asignatura = resultado.getString("asignatura");
+                inciso.asignatura = resultado.getString("claveAsignatura");
                 inciso.grado = resultado.getString("grado").charAt(0);
+<<<<<<< HEAD
 
 //            TODO
 //            utilizar setter y getters
@@ -118,6 +137,15 @@ public class ExamenControlador {
                 inciso.setRespuestaSegunda("");
                 inciso.setRespuestaTercera("");
                 inciso.setRespuestaCuarta("");
+=======
+            } else {
+                JOptionPane.showMessageDialog(null, "No hay ningún registro");
+                inciso.identificador = "";
+                inciso.respuestas.add("");
+                inciso.respuestas.add("");
+                inciso.respuestas.add("");
+                inciso.respuestas.add("");
+>>>>>>> Alejandro2
                 inciso.respuestaCorrecta = 0;
                 inciso.asignatura = "";
                 inciso.grado = '\0';
@@ -131,17 +159,24 @@ public class ExamenControlador {
 
     public static Inciso SiguienteBD() throws HeadlessException, SQLException {
         try {
-            //resultado=Conexion.ejecutarSQLSelect(sql);
-            //  while(resultado.);
             if (resultado.isLast()) {
                 JOptionPane.showMessageDialog(null, "Último registro de la base");
             } else {
                 resultado.next();
+                inciso.respuestas.clear();
+                inciso.pregunta = resultado.getString("textoPregunta");
                 inciso.identificador = resultado.getString("identificador");
+<<<<<<< HEAD
                 inciso.setRespuestaPrimera(resultado.getString("primeraRespuesta"));
                 inciso.setRespuestaSegunda(resultado.getString("segundaRespuesta"));
                 inciso.setRespuestaTercera(resultado.getString("terceraRespuesta"));
                 inciso.setRespuestaCuarta(resultado.getString("cuartaRespuesta"));
+=======
+                inciso.respuestas.add(resultado.getString("primeraRespuesta"));
+                inciso.respuestas.add(resultado.getString("segundaRespuesta"));
+                inciso.respuestas.add(resultado.getString("terceraRespuesta"));
+                inciso.respuestas.add(resultado.getString("cuartaRespuesta"));
+>>>>>>> Alejandro2
                 inciso.respuestaCorrecta = resultado.getInt("respuestaCorrecta");
                 inciso.asignatura = resultado.getString("claveAsignatura");
                 inciso.grado = resultado.getString("grado").charAt(0);
@@ -161,11 +196,20 @@ public class ExamenControlador {
                 JOptionPane.showMessageDialog(null, "Primer registro de la base");
             } else {
                 resultado.previous();
+                inciso.respuestas.clear();
+                inciso.pregunta = resultado.getString("textoPregunta");
                 inciso.identificador = resultado.getString("identificador");
+<<<<<<< HEAD
                 inciso.setRespuestaPrimera(resultado.getString("primeraRespuesta"));
                 inciso.setRespuestaSegunda(resultado.getString("segundaRespuesta"));
                 inciso.setRespuestaTercera(resultado.getString("terceraRespuesta"));
                 inciso.setRespuestaCuarta(resultado.getString("cuartaRespuesta"));
+=======
+                inciso.respuestas.add(resultado.getString("primeraRespuesta"));
+                inciso.respuestas.add(resultado.getString("segundaRespuesta"));
+                inciso.respuestas.add(resultado.getString("terceraRespuesta"));
+                inciso.respuestas.add(resultado.getString("cuartaRespuesta"));
+>>>>>>> Alejandro2
                 inciso.respuestaCorrecta = resultado.getInt("respuestaCorrecta");
                 inciso.asignatura = resultado.getString("claveAsignatura");
                 inciso.grado = resultado.getString("grado").charAt(0);

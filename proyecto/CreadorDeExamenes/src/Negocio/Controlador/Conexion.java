@@ -77,7 +77,7 @@ public class Conexion {
         ResultSet resultado;
         try {
             Statement sentencia = conexionOK.createStatement();
-            resultado = sentencia.executeQuery(sql);
+            resultado = sentencia.executeQuery(sql); 
         } catch (SQLException ex) {
             throw ex;
         }

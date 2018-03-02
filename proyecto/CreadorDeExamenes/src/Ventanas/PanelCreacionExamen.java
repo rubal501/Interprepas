@@ -8,6 +8,7 @@ package Ventanas;
 import Negocio.Controlador.Conexion;
 import Negocio.Controlador.ExamenControlador;
 import Negocio.Modelo.Inciso;
+import java.awt.HeadlessException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ArrayList;
@@ -317,8 +318,6 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se pudo agregar el inciso debido a un error interno, intentelo más tarde");
         }
-//        Alejandro cree que esta aprte funciona para enviar errores que especificamente
-//        esten relacionados a la base de datos
 
         for (JTextField campoDeTexto : camposDeTexto) {
             campoDeTexto.setText("");
@@ -341,17 +340,24 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
         for (JTextField campoDeTexto : camposDeTexto) {
             if (!campoDeTexto.getText().equals("")) {
                 int respuestaMensaje = JOptionPane.showConfirmDialog(null, "Se detectaron cambios pendientes. ¿Continuar sin guardar los cambios actuales?", "Cambios detectados", JOptionPane.YES_NO_OPTION);
-                if (respuestaMensaje == JOptionPane.YES_OPTION) {
-                    break;
-                } else {
+
+                if (respuestaMensaje != JOptionPane.YES_OPTION) {
+
                     return;
                 }
             }
         }
 
         this.dispose();
-        ExamenAlumno ventana = new ExamenAlumno();
-        ventana.setVisible(true);
+
+        try {
+            ExamenAlumno ventana = new ExamenAlumno();
+            ventana.setVisible(true);
+        } catch (HeadlessException | SQLException | ClassNotFoundException ex) {
+            PanelCreacionExamen ventana = new PanelCreacionExamen();
+            ventana.setVisible(true);
+            JOptionPane.showMessageDialog(null, "Hubo un error al cargar la ventana de examen");
+        }
     }//GEN-LAST:event_buttContestarActionPerformed
 
     private void cmbAsignaturaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbAsignaturaItemStateChanged

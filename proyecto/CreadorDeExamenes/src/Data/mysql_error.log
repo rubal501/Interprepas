@@ -1,0 +1,251 @@
+2018-02-28 14:42:00 1610 InnoDB: Warning: Using innodb_additional_mem_pool_size is DEPRECATED. This option may be removed in future releases, together with the option innodb_use_sys_malloc and with the InnoDB's internal memory allocator.
+2018-02-28 14:42:00 5648 [Note] InnoDB: innodb_empty_free_list_algorithm has been changed to legacy because of small buffer pool size. In order to use backoff, increase buffer pool at least up to 20MB.
+
+2018-02-28 14:42:01 5648 [Note] InnoDB: Using mutexes to ref count buffer pool pages
+2018-02-28 14:42:01 5648 [Note] InnoDB: The InnoDB memory heap is disabled
+2018-02-28 14:42:01 5648 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2018-02-28 14:42:01 5648 [Note] InnoDB: _mm_lfence() and _mm_sfence() are used for memory barrier
+2018-02-28 14:42:01 5648 [Note] InnoDB: Compressed tables use zlib 1.2.3
+2018-02-28 14:42:03 5648 [Note] InnoDB: Using generic crc32 instructions
+2018-02-28 14:42:05 5648 [Note] InnoDB: Initializing buffer pool, size = 16.0M
+2018-02-28 14:42:05 5648 [Note] InnoDB: Completed initialization of buffer pool
+2018-02-28 14:42:07 5648 [Note] InnoDB: Highest supported file format is Barracuda.
+2018-02-28 14:42:19 5648 [Note] InnoDB: 128 rollback segment(s) are active.
+2018-02-28 14:42:19 5648 [Note] InnoDB: Waiting for purge to start
+2018-02-28 14:42:19 5648 [Note] InnoDB:  Percona XtraDB (http://www.percona.com) 5.6.36-82.2 started; log sequence number 1624480
+2018-02-28 14:42:28 3784 [Note] InnoDB: Dumping buffer pool(s) not yet started
+2018-02-28 14:42:29 5648 [Note] Plugin 'FEEDBACK' is disabled.
+2018-02-28 14:42:30 5648 [ERROR] Could not open mysql.plugin table. Some plugins may be not loaded
+2018-02-28 14:42:30 5648 [ERROR] Can't open and lock privilege tables: Table 'mysql.servers' doesn't exist
+2018-02-28 14:42:30 5648 [Note] Server socket created on IP: '::'.
+2018-02-28 14:42:31 5648 [ERROR] Fatal error: Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+2018-03-01 02:11:56 174c InnoDB: Warning: Using innodb_additional_mem_pool_size is DEPRECATED. This option may be removed in future releases, together with the option innodb_use_sys_malloc and with the InnoDB's internal memory allocator.
+2018-03-01  2:11:56 5964 [Note] InnoDB: innodb_empty_free_list_algorithm has been changed to legacy because of small buffer pool size. In order to use backoff, increase buffer pool at least up to 20MB.
+
+2018-03-01  2:11:56 5964 [Note] InnoDB: Using mutexes to ref count buffer pool pages
+2018-03-01  2:11:56 5964 [Note] InnoDB: The InnoDB memory heap is disabled
+2018-03-01  2:11:56 5964 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2018-03-01  2:11:56 5964 [Note] InnoDB: _mm_lfence() and _mm_sfence() are used for memory barrier
+2018-03-01  2:11:56 5964 [Note] InnoDB: Compressed tables use zlib 1.2.3
+2018-03-01  2:11:57 5964 [Note] InnoDB: Using generic crc32 instructions
+2018-03-01  2:11:58 5964 [Note] InnoDB: Initializing buffer pool, size = 16.0M
+2018-03-01  2:11:58 5964 [Note] InnoDB: Completed initialization of buffer pool
+2018-03-01  2:11:59 5964 [Note] InnoDB: Highest supported file format is Barracuda.
+2018-03-01  2:12:00 5964 [Note] InnoDB: The log sequence number 1624480 in ibdata file do not match the log sequence number 1624490 in the ib_logfiles!
+2018-03-01  2:12:01 5964 [Note] InnoDB: Restoring possible half-written data pages from the doublewrite buffer...
+2018-03-01  2:12:05 5964 [Note] InnoDB: 128 rollback segment(s) are active.
+2018-03-01  2:12:05 5964 [Note] InnoDB: Waiting for purge to start
+2018-03-01  2:12:05 5964 [Note] InnoDB:  Percona XtraDB (http://www.percona.com) 5.6.36-82.2 started; log sequence number 1624490
+2018-03-01  2:12:06 3536 [Note] InnoDB: Dumping buffer pool(s) not yet started
+2018-03-01  2:12:07 5964 [Note] Plugin 'FEEDBACK' is disabled.
+2018-03-01  2:12:07 5964 [ERROR] Could not open mysql.plugin table. Some plugins may be not loaded
+2018-03-01  2:12:07 5964 [ERROR] Can't open and lock privilege tables: Table 'mysql.servers' doesn't exist
+2018-03-01  2:12:07 5964 [Note] Server socket created on IP: '::'.
+2018-03-01  2:12:07 5964 [ERROR] Fatal error: Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+2018-02-28 21:30:52 17a4 InnoDB: Warning: Using innodb_additional_mem_pool_size is DEPRECATED. This option may be removed in future releases, together with the option innodb_use_sys_malloc and with the InnoDB's internal memory allocator.
+2018-02-28 21:30:52 6052 [Note] InnoDB: innodb_empty_free_list_algorithm has been changed to legacy because of small buffer pool size. In order to use backoff, increase buffer pool at least up to 20MB.
+
+2018-02-28 21:30:52 6052 [Note] InnoDB: Using mutexes to ref count buffer pool pages
+2018-02-28 21:30:52 6052 [Note] InnoDB: The InnoDB memory heap is disabled
+2018-02-28 21:30:52 6052 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2018-02-28 21:30:52 6052 [Note] InnoDB: _mm_lfence() and _mm_sfence() are used for memory barrier
+2018-02-28 21:30:52 6052 [Note] InnoDB: Compressed tables use zlib 1.2.3
+2018-02-28 21:30:52 6052 [Note] InnoDB: Using generic crc32 instructions
+2018-02-28 21:30:52 6052 [Note] InnoDB: Initializing buffer pool, size = 16.0M
+2018-02-28 21:30:52 6052 [Note] InnoDB: Completed initialization of buffer pool
+2018-02-28 21:30:52 6052 [Note] InnoDB: Highest supported file format is Barracuda.
+2018-02-28 21:30:52 6052 [Note] InnoDB: The log sequence number 1624480 in ibdata file do not match the log sequence number 1624500 in the ib_logfiles!
+2018-02-28 21:30:52 6052 [Note] InnoDB: Restoring possible half-written data pages from the doublewrite buffer...
+2018-02-28 21:30:52 6052 [Note] InnoDB: 128 rollback segment(s) are active.
+2018-02-28 21:30:52 6052 [Note] InnoDB: Waiting for purge to start
+2018-02-28 21:30:52 6052 [Note] InnoDB:  Percona XtraDB (http://www.percona.com) 5.6.36-82.2 started; log sequence number 1624500
+2018-02-28 21:30:52 14264 [Note] InnoDB: Dumping buffer pool(s) not yet started
+2018-02-28 21:30:53 6052 [Note] Plugin 'FEEDBACK' is disabled.
+2018-02-28 21:30:53 6052 [ERROR] Could not open mysql.plugin table. Some plugins may be not loaded
+2018-02-28 21:30:53 6052 [ERROR] Can't open and lock privilege tables: Table 'mysql.servers' doesn't exist
+2018-02-28 21:30:53 6052 [Note] Server socket created on IP: '::'.
+2018-02-28 21:30:53 6052 [ERROR] Fatal error: Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+2018-02-28 21:31:22 8e0 InnoDB: Warning: Using innodb_additional_mem_pool_size is DEPRECATED. This option may be removed in future releases, together with the option innodb_use_sys_malloc and with the InnoDB's internal memory allocator.
+2018-02-28 21:31:22 2272 [Note] InnoDB: innodb_empty_free_list_algorithm has been changed to legacy because of small buffer pool size. In order to use backoff, increase buffer pool at least up to 20MB.
+
+2018-02-28 21:31:22 2272 [Note] InnoDB: Using mutexes to ref count buffer pool pages
+2018-02-28 21:31:22 2272 [Note] InnoDB: The InnoDB memory heap is disabled
+2018-02-28 21:31:22 2272 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2018-02-28 21:31:22 2272 [Note] InnoDB: _mm_lfence() and _mm_sfence() are used for memory barrier
+2018-02-28 21:31:22 2272 [Note] InnoDB: Compressed tables use zlib 1.2.3
+2018-02-28 21:31:22 2272 [Note] InnoDB: Using generic crc32 instructions
+2018-02-28 21:31:22 2272 [Note] InnoDB: Initializing buffer pool, size = 16.0M
+2018-02-28 21:31:22 2272 [Note] InnoDB: Completed initialization of buffer pool
+2018-02-28 21:31:22 2272 [Note] InnoDB: Highest supported file format is Barracuda.
+2018-02-28 21:31:22 2272 [Note] InnoDB: The log sequence number 1624480 in ibdata file do not match the log sequence number 1624510 in the ib_logfiles!
+2018-02-28 21:31:22 2272 [Note] InnoDB: Restoring possible half-written data pages from the doublewrite buffer...
+2018-02-28 21:31:22 2272 [Note] InnoDB: 128 rollback segment(s) are active.
+2018-02-28 21:31:22 2272 [Note] InnoDB: Waiting for purge to start
+2018-02-28 21:31:22 2272 [Note] InnoDB:  Percona XtraDB (http://www.percona.com) 5.6.36-82.2 started; log sequence number 1624510
+2018-02-28 21:31:22 5944 [Note] InnoDB: Dumping buffer pool(s) not yet started
+2018-02-28 21:31:22 2272 [Note] Plugin 'FEEDBACK' is disabled.
+2018-02-28 21:31:22 2272 [ERROR] Could not open mysql.plugin table. Some plugins may be not loaded
+2018-02-28 21:31:22 2272 [ERROR] Can't open and lock privilege tables: Table 'mysql.servers' doesn't exist
+2018-02-28 21:31:22 2272 [Note] Server socket created on IP: '::'.
+2018-02-28 21:31:22 2272 [ERROR] Fatal error: Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+2018-02-28 21:31:36 b54 InnoDB: Warning: Using innodb_additional_mem_pool_size is DEPRECATED. This option may be removed in future releases, together with the option innodb_use_sys_malloc and with the InnoDB's internal memory allocator.
+2018-02-28 21:31:36 2900 [Note] InnoDB: innodb_empty_free_list_algorithm has been changed to legacy because of small buffer pool size. In order to use backoff, increase buffer pool at least up to 20MB.
+
+2018-02-28 21:31:36 2900 [Note] InnoDB: Using mutexes to ref count buffer pool pages
+2018-02-28 21:31:36 2900 [Note] InnoDB: The InnoDB memory heap is disabled
+2018-02-28 21:31:36 2900 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2018-02-28 21:31:36 2900 [Note] InnoDB: _mm_lfence() and _mm_sfence() are used for memory barrier
+2018-02-28 21:31:36 2900 [Note] InnoDB: Compressed tables use zlib 1.2.3
+2018-02-28 21:31:36 2900 [Note] InnoDB: Using generic crc32 instructions
+2018-02-28 21:31:36 2900 [Note] InnoDB: Initializing buffer pool, size = 16.0M
+2018-02-28 21:31:36 2900 [Note] InnoDB: Completed initialization of buffer pool
+2018-02-28 21:31:36 2900 [Note] InnoDB: Highest supported file format is Barracuda.
+2018-02-28 21:31:36 2900 [Note] InnoDB: The log sequence number 1624480 in ibdata file do not match the log sequence number 1624520 in the ib_logfiles!
+2018-02-28 21:31:36 2900 [Note] InnoDB: Restoring possible half-written data pages from the doublewrite buffer...
+2018-02-28 21:31:37 2900 [Note] InnoDB: 128 rollback segment(s) are active.
+2018-02-28 21:31:37 2900 [Note] InnoDB: Waiting for purge to start
+2018-02-28 21:31:37 2900 [Note] InnoDB:  Percona XtraDB (http://www.percona.com) 5.6.36-82.2 started; log sequence number 1624520
+2018-02-28 21:31:37 12200 [Note] InnoDB: Dumping buffer pool(s) not yet started
+2018-02-28 21:31:37 2900 [Note] Plugin 'FEEDBACK' is disabled.
+2018-02-28 21:31:37 2900 [ERROR] Could not open mysql.plugin table. Some plugins may be not loaded
+2018-02-28 21:31:37 2900 [ERROR] Can't open and lock privilege tables: Table 'mysql.servers' doesn't exist
+2018-02-28 21:31:37 2900 [Note] Server socket created on IP: '::'.
+2018-02-28 21:31:37 2900 [ERROR] Fatal error: Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+2018-02-28 21:31:47 4c4 InnoDB: Warning: Using innodb_additional_mem_pool_size is DEPRECATED. This option may be removed in future releases, together with the option innodb_use_sys_malloc and with the InnoDB's internal memory allocator.
+2018-02-28 21:31:47 1220 [Note] InnoDB: innodb_empty_free_list_algorithm has been changed to legacy because of small buffer pool size. In order to use backoff, increase buffer pool at least up to 20MB.
+
+2018-02-28 21:31:47 1220 [Note] InnoDB: Using mutexes to ref count buffer pool pages
+2018-02-28 21:31:47 1220 [Note] InnoDB: The InnoDB memory heap is disabled
+2018-02-28 21:31:47 1220 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2018-02-28 21:31:47 1220 [Note] InnoDB: _mm_lfence() and _mm_sfence() are used for memory barrier
+2018-02-28 21:31:47 1220 [Note] InnoDB: Compressed tables use zlib 1.2.3
+2018-02-28 21:31:47 1220 [Note] InnoDB: Using generic crc32 instructions
+2018-02-28 21:31:47 1220 [Note] InnoDB: Initializing buffer pool, size = 16.0M
+2018-02-28 21:31:47 1220 [Note] InnoDB: Completed initialization of buffer pool
+2018-02-28 21:31:47 1220 [Note] InnoDB: Highest supported file format is Barracuda.
+2018-02-28 21:31:47 1220 [Note] InnoDB: The log sequence number 1624480 in ibdata file do not match the log sequence number 1624530 in the ib_logfiles!
+2018-02-28 21:31:47 1220 [Note] InnoDB: Restoring possible half-written data pages from the doublewrite buffer...
+2018-02-28 21:31:47 1220 [Note] InnoDB: 128 rollback segment(s) are active.
+2018-02-28 21:31:47 1220 [Note] InnoDB: Waiting for purge to start
+2018-02-28 21:31:47 1220 [Note] InnoDB:  Percona XtraDB (http://www.percona.com) 5.6.36-82.2 started; log sequence number 1624530
+2018-02-28 21:31:47 11596 [Note] InnoDB: Dumping buffer pool(s) not yet started
+2018-02-28 21:31:47 1220 [Note] Plugin 'FEEDBACK' is disabled.
+2018-02-28 21:31:47 1220 [ERROR] Could not open mysql.plugin table. Some plugins may be not loaded
+2018-02-28 21:31:47 1220 [ERROR] Can't open and lock privilege tables: Table 'mysql.servers' doesn't exist
+2018-02-28 21:31:47 1220 [Note] Server socket created on IP: '::'.
+2018-02-28 21:31:47 1220 [ERROR] Fatal error: Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+2018-02-28 21:32:52 32e4 InnoDB: Warning: Using innodb_additional_mem_pool_size is DEPRECATED. This option may be removed in future releases, together with the option innodb_use_sys_malloc and with the InnoDB's internal memory allocator.
+2018-02-28 21:32:52 13028 [Note] InnoDB: innodb_empty_free_list_algorithm has been changed to legacy because of small buffer pool size. In order to use backoff, increase buffer pool at least up to 20MB.
+
+2018-02-28 21:32:52 13028 [Note] InnoDB: Using mutexes to ref count buffer pool pages
+2018-02-28 21:32:52 13028 [Note] InnoDB: The InnoDB memory heap is disabled
+2018-02-28 21:32:52 13028 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2018-02-28 21:32:52 13028 [Note] InnoDB: _mm_lfence() and _mm_sfence() are used for memory barrier
+2018-02-28 21:32:52 13028 [Note] InnoDB: Compressed tables use zlib 1.2.3
+2018-02-28 21:32:52 13028 [Note] InnoDB: Using generic crc32 instructions
+2018-02-28 21:32:52 13028 [Note] InnoDB: Initializing buffer pool, size = 16.0M
+2018-02-28 21:32:52 13028 [Note] InnoDB: Completed initialization of buffer pool
+2018-02-28 21:32:52 13028 [Note] InnoDB: Highest supported file format is Barracuda.
+2018-02-28 21:32:52 13028 [Note] InnoDB: The log sequence number 1624480 in ibdata file do not match the log sequence number 1624540 in the ib_logfiles!
+2018-02-28 21:32:53 13028 [Note] InnoDB: Restoring possible half-written data pages from the doublewrite buffer...
+2018-02-28 21:32:54 13028 [Note] InnoDB: 128 rollback segment(s) are active.
+2018-02-28 21:32:54 13028 [Note] InnoDB: Waiting for purge to start
+2018-02-28 21:32:54 13028 [Note] InnoDB:  Percona XtraDB (http://www.percona.com) 5.6.36-82.2 started; log sequence number 1624540
+2018-02-28 21:32:54 9624 [Note] InnoDB: Dumping buffer pool(s) not yet started
+2018-02-28 21:32:54 13028 [Note] Plugin 'FEEDBACK' is disabled.
+2018-02-28 21:32:54 13028 [ERROR] Could not open mysql.plugin table. Some plugins may be not loaded
+2018-02-28 21:32:54 13028 [ERROR] Can't open and lock privilege tables: Table 'mysql.servers' doesn't exist
+2018-02-28 21:32:54 13028 [Note] Server socket created on IP: '::'.
+2018-02-28 21:32:54 13028 [ERROR] Fatal error: Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+2018-02-28 21:32:56 1ab4 InnoDB: Warning: Using innodb_additional_mem_pool_size is DEPRECATED. This option may be removed in future releases, together with the option innodb_use_sys_malloc and with the InnoDB's internal memory allocator.
+2018-02-28 21:32:56 6836 [Note] InnoDB: innodb_empty_free_list_algorithm has been changed to legacy because of small buffer pool size. In order to use backoff, increase buffer pool at least up to 20MB.
+
+2018-02-28 21:32:56 6836 [Note] InnoDB: Using mutexes to ref count buffer pool pages
+2018-02-28 21:32:56 6836 [Note] InnoDB: The InnoDB memory heap is disabled
+2018-02-28 21:32:56 6836 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2018-02-28 21:32:56 6836 [Note] InnoDB: _mm_lfence() and _mm_sfence() are used for memory barrier
+2018-02-28 21:32:56 6836 [Note] InnoDB: Compressed tables use zlib 1.2.3
+2018-02-28 21:32:56 6836 [Note] InnoDB: Using generic crc32 instructions
+2018-02-28 21:32:56 6836 [Note] InnoDB: Initializing buffer pool, size = 16.0M
+2018-02-28 21:32:56 6836 [Note] InnoDB: Completed initialization of buffer pool
+2018-02-28 21:32:56 6836 [Note] InnoDB: Highest supported file format is Barracuda.
+2018-02-28 21:32:56 6836 [Note] InnoDB: The log sequence number 1624480 in ibdata file do not match the log sequence number 1624550 in the ib_logfiles!
+2018-02-28 21:32:56 6836 [Note] InnoDB: Restoring possible half-written data pages from the doublewrite buffer...
+2018-02-28 21:32:57 6836 [Note] InnoDB: 128 rollback segment(s) are active.
+2018-02-28 21:32:57 6836 [Note] InnoDB: Waiting for purge to start
+2018-02-28 21:32:57 6836 [Note] InnoDB:  Percona XtraDB (http://www.percona.com) 5.6.36-82.2 started; log sequence number 1624550
+2018-02-28 21:32:57 13408 [Note] InnoDB: Dumping buffer pool(s) not yet started
+2018-02-28 21:32:57 6836 [Note] Plugin 'FEEDBACK' is disabled.
+2018-02-28 21:32:57 6836 [ERROR] Could not open mysql.plugin table. Some plugins may be not loaded
+2018-02-28 21:32:57 6836 [ERROR] Can't open and lock privilege tables: Table 'mysql.servers' doesn't exist
+2018-02-28 21:32:57 6836 [Note] Server socket created on IP: '::'.
+2018-02-28 21:32:57 6836 [ERROR] Fatal error: Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+2018-02-28 21:33:09 30ec InnoDB: Warning: Using innodb_additional_mem_pool_size is DEPRECATED. This option may be removed in future releases, together with the option innodb_use_sys_malloc and with the InnoDB's internal memory allocator.
+2018-02-28 21:33:09 12524 [Note] InnoDB: innodb_empty_free_list_algorithm has been changed to legacy because of small buffer pool size. In order to use backoff, increase buffer pool at least up to 20MB.
+
+2018-02-28 21:33:09 12524 [Note] InnoDB: Using mutexes to ref count buffer pool pages
+2018-02-28 21:33:09 12524 [Note] InnoDB: The InnoDB memory heap is disabled
+2018-02-28 21:33:09 12524 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2018-02-28 21:33:09 12524 [Note] InnoDB: _mm_lfence() and _mm_sfence() are used for memory barrier
+2018-02-28 21:33:09 12524 [Note] InnoDB: Compressed tables use zlib 1.2.3
+2018-02-28 21:33:09 12524 [Note] InnoDB: Using generic crc32 instructions
+2018-02-28 21:33:09 12524 [Note] InnoDB: Initializing buffer pool, size = 16.0M
+2018-02-28 21:33:09 12524 [Note] InnoDB: Completed initialization of buffer pool
+2018-02-28 21:33:09 12524 [Note] InnoDB: Highest supported file format is Barracuda.
+2018-02-28 21:33:09 12524 [Note] InnoDB: The log sequence number 1624480 in ibdata file do not match the log sequence number 1624560 in the ib_logfiles!
+2018-02-28 21:33:09 12524 [Note] InnoDB: Restoring possible half-written data pages from the doublewrite buffer...
+2018-02-28 21:33:10 12524 [Note] InnoDB: 128 rollback segment(s) are active.
+2018-02-28 21:33:10 12524 [Note] InnoDB: Waiting for purge to start
+2018-02-28 21:33:10 12524 [Note] InnoDB:  Percona XtraDB (http://www.percona.com) 5.6.36-82.2 started; log sequence number 1624560
+2018-02-28 21:33:10 14216 [Note] InnoDB: Dumping buffer pool(s) not yet started
+2018-02-28 21:33:10 12524 [Note] Plugin 'FEEDBACK' is disabled.
+2018-02-28 21:33:10 12524 [ERROR] Could not open mysql.plugin table. Some plugins may be not loaded
+2018-02-28 21:33:10 12524 [ERROR] Can't open and lock privilege tables: Table 'mysql.servers' doesn't exist
+2018-02-28 21:33:10 12524 [Note] Server socket created on IP: '::'.
+2018-02-28 21:33:10 12524 [ERROR] Fatal error: Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+2018-02-28 21:33:15 1650 InnoDB: Warning: Using innodb_additional_mem_pool_size is DEPRECATED. This option may be removed in future releases, together with the option innodb_use_sys_malloc and with the InnoDB's internal memory allocator.
+2018-02-28 21:33:15 5712 [Note] InnoDB: innodb_empty_free_list_algorithm has been changed to legacy because of small buffer pool size. In order to use backoff, increase buffer pool at least up to 20MB.
+
+2018-02-28 21:33:15 5712 [Note] InnoDB: Using mutexes to ref count buffer pool pages
+2018-02-28 21:33:15 5712 [Note] InnoDB: The InnoDB memory heap is disabled
+2018-02-28 21:33:15 5712 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2018-02-28 21:33:15 5712 [Note] InnoDB: _mm_lfence() and _mm_sfence() are used for memory barrier
+2018-02-28 21:33:15 5712 [Note] InnoDB: Compressed tables use zlib 1.2.3
+2018-02-28 21:33:15 5712 [Note] InnoDB: Using generic crc32 instructions
+2018-02-28 21:33:15 5712 [Note] InnoDB: Initializing buffer pool, size = 16.0M
+2018-02-28 21:33:15 5712 [Note] InnoDB: Completed initialization of buffer pool
+2018-02-28 21:33:15 5712 [Note] InnoDB: Highest supported file format is Barracuda.
+2018-02-28 21:33:15 5712 [Note] InnoDB: The log sequence number 1624480 in ibdata file do not match the log sequence number 1624570 in the ib_logfiles!
+2018-02-28 21:33:15 5712 [Note] InnoDB: Restoring possible half-written data pages from the doublewrite buffer...
+2018-02-28 21:33:15 5712 [Note] InnoDB: 128 rollback segment(s) are active.
+2018-02-28 21:33:15 5712 [Note] InnoDB: Waiting for purge to start
+2018-02-28 21:33:15 5712 [Note] InnoDB:  Percona XtraDB (http://www.percona.com) 5.6.36-82.2 started; log sequence number 1624570
+2018-02-28 21:33:15 6200 [Note] InnoDB: Dumping buffer pool(s) not yet started
+2018-02-28 21:33:16 5712 [Note] Plugin 'FEEDBACK' is disabled.
+2018-02-28 21:33:16 5712 [ERROR] Could not open mysql.plugin table. Some plugins may be not loaded
+2018-02-28 21:33:16 5712 [ERROR] Can't open and lock privilege tables: Table 'mysql.servers' doesn't exist
+2018-02-28 21:33:16 5712 [Note] Server socket created on IP: '::'.
+2018-02-28 21:33:16 5712 [ERROR] Fatal error: Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+2018-02-28 21:33:45 28c0 InnoDB: Warning: Using innodb_additional_mem_pool_size is DEPRECATED. This option may be removed in future releases, together with the option innodb_use_sys_malloc and with the InnoDB's internal memory allocator.
+2018-02-28 21:33:45 10432 [Note] InnoDB: innodb_empty_free_list_algorithm has been changed to legacy because of small buffer pool size. In order to use backoff, increase buffer pool at least up to 20MB.
+
+2018-02-28 21:33:45 10432 [Note] InnoDB: Using mutexes to ref count buffer pool pages
+2018-02-28 21:33:45 10432 [Note] InnoDB: The InnoDB memory heap is disabled
+2018-02-28 21:33:45 10432 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2018-02-28 21:33:45 10432 [Note] InnoDB: _mm_lfence() and _mm_sfence() are used for memory barrier
+2018-02-28 21:33:45 10432 [Note] InnoDB: Compressed tables use zlib 1.2.3
+2018-02-28 21:33:45 10432 [Note] InnoDB: Using generic crc32 instructions
+2018-02-28 21:33:45 10432 [Note] InnoDB: Initializing buffer pool, size = 16.0M
+2018-02-28 21:33:45 10432 [Note] InnoDB: Completed initialization of buffer pool
+2018-02-28 21:33:45 10432 [Note] InnoDB: Highest supported file format is Barracuda.
+2018-02-28 21:33:45 10432 [Note] InnoDB: The log sequence number 1624480 in ibdata file do not match the log sequence number 1624596 in the ib_logfiles!
+2018-02-28 21:33:45 10432 [Note] InnoDB: Restoring possible half-written data pages from the doublewrite buffer...
+2018-02-28 21:33:45 10432 [Note] InnoDB: 128 rollback segment(s) are active.
+2018-02-28 21:33:45 10432 [Note] InnoDB: Waiting for purge to start
+2018-02-28 21:33:45 10432 [Note] InnoDB:  Percona XtraDB (http://www.percona.com) 5.6.36-82.2 started; log sequence number 1624596
+2018-02-28 21:33:45 9808 [Note] InnoDB: Dumping buffer pool(s) not yet started
+2018-02-28 21:33:45 10432 [Note] Plugin 'FEEDBACK' is disabled.
+2018-02-28 21:33:45 10432 [ERROR] Could not open mysql.plugin table. Some plugins may be not loaded
+2018-02-28 21:33:45 10432 [ERROR] Can't open and lock privilege tables: Table 'mysql.servers' doesn't exist
+2018-02-28 21:33:45 10432 [Note] Server socket created on IP: '::'.
+2018-02-28 21:33:45 10432 [ERROR] Fatal error: Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
