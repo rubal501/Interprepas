@@ -14,8 +14,29 @@ public class Calificacion extends javax.swing.JFrame {
     /**
      * Creates new form Calificacion
      */
+    int calificacion = 0;
+    int totales, correctas;
     public Calificacion() {
         initComponents();
+        
+    }
+
+
+
+    public void setCalificacion(int calificacion) {
+        this.calificacion = calificacion;
+        lblCalificacion.setText(String.valueOf(calificacion));
+    }
+
+
+    public void setTotales(int totales) {
+        this.totales = totales;
+        lblTotales.setText(String.valueOf(totales));
+    }
+
+    public void setCorrectas(int correctas) {
+        this.correctas = correctas;
+        lblCorrectas.setText(String.valueOf(calificacion));
     }
 
     /**
@@ -31,9 +52,9 @@ public class Calificacion extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        lblTotales = new javax.swing.JLabel();
+        lblCorrectas = new javax.swing.JLabel();
+        lblCalificacion = new javax.swing.JLabel();
         buttRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -47,11 +68,11 @@ public class Calificacion extends javax.swing.JFrame {
 
         jLabel4.setText("Calificación:");
 
-        jLabel5.setText("-");
+        lblTotales.setText("-");
 
-        jLabel6.setText("-");
+        lblCorrectas.setText("-");
 
-        jLabel7.setText("-");
+        lblCalificacion.setText("-");
 
         buttRegresar.setText("Regresar");
         buttRegresar.addActionListener(new java.awt.event.ActionListener() {
@@ -82,9 +103,9 @@ public class Calificacion extends javax.swing.JFrame {
                                 .addComponent(jLabel4)
                                 .addGap(18, 18, 18)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel5))))
+                            .addComponent(lblCalificacion)
+                            .addComponent(lblCorrectas)
+                            .addComponent(lblTotales))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 157, Short.MAX_VALUE)
@@ -99,15 +120,15 @@ public class Calificacion extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel5))
+                    .addComponent(lblTotales))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel6))
+                    .addComponent(lblCorrectas))
                 .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel7))
+                    .addComponent(lblCalificacion))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(buttRegresar)
                 .addGap(28, 28, 28))
@@ -163,8 +184,8 @@ public class Calificacion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel lblCalificacion;
+    private javax.swing.JLabel lblCorrectas;
+    private javax.swing.JLabel lblTotales;
     // End of variables declaration//GEN-END:variables
 }
