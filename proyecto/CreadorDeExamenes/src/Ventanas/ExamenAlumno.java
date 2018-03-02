@@ -277,13 +277,13 @@ public class ExamenAlumno extends javax.swing.JFrame {
             try {
                 Inciso inciso = ExamenControlador.SiguienteBD();
                 if (radA.isSelected() == true) {
-                    respuestasSelecionadas.add(1);
+                    respuestasSelecionadas.add(0);
                 } else if (radB.isSelected() == true) {
-                    respuestasSelecionadas.add(2);
+                    respuestasSelecionadas.add(1);
                 } else if (radC.isSelected() == true) {
-                    respuestasSelecionadas.add(3);
+                    respuestasSelecionadas.add(2);
                 } else if (radD.isSelected() == true) {
-                    respuestasSelecionadas.add(4);
+                    respuestasSelecionadas.add(3);
                 }
                 refrescarEtiquetas(inciso);
             } catch (HeadlessException | SQLException ex) {
