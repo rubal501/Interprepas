@@ -36,7 +36,9 @@ public class ExamenControlador {
     }
 
     public static void GuardarRegistroBD(Inciso i) throws SQLException {
-        sql = "insert into incisos values(\""+i.identificador+"\", \""+i.pregunta
+        sql = "insert into incisos (textoPregunta, primeraRespuesta, segundaRespuesta,"
+                + "terceraRespuesta, cuartaRespuesta, respuestaCorrecta, grado,"
+                + "claveAsignatura) values(\""+i.identificador+"\", \""+i.pregunta
                +"\", \""+i.respuestas.get(0)+"\", \""+i.respuestas.get(1)
                +"\", \""+i.respuestas.get(2)+"\", \""+i.respuestas.get(3) 
                +"\", \""+i.getRespuestaCorrecta()+"\", \""+i.getGrado()
