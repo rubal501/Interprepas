@@ -33,17 +33,14 @@ public class Inciso {
         this.pregunta = pregunta;
         //this.grado = grado;
         this.respuestaCorrecta = respuestaCorrecta;
-<<<<<<< HEAD
+
         //this.identificador = identificador;
         this.respuestaPrimera = respuestaPrimera ;
         this.respuestaSegunda = respuestaSegunda;
         this.respuestaTercera =  respuestaTercera;
         this.respuestaCuarta = respuestaCuarta;
         
-=======
-        this.identificador = "1058";
-        this.respuestas = respuestas;
->>>>>>> Alejandro2
+
     }
 
     public String getPregunta() {
