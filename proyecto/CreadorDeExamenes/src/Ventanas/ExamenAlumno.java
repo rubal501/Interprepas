@@ -5,7 +5,9 @@ import Negocio.Controlador.ExamenControlador;
 import Negocio.Modelo.Inciso;
 import java.awt.HeadlessException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -13,15 +15,22 @@ import javax.swing.JOptionPane;
 /**
  * @author AlRu
  */
+
 public class ExamenAlumno extends javax.swing.JFrame {  
+
     /**
      * Inicializa la ventana y sus componentes
      * @throws SQLException si hubo un error al ejecutar el comando sql
      * @throws ClassNotFoundException si hubo un error al buscar un driver
      */
-    public ExamenAlumno() throws SQLException, ClassNotFoundException {
+
+    ArrayList<Integer> respuestasSelecionadas = new ArrayList<Integer>();
+    ArrayList<Integer> respuestasCorrectas = new ArrayList<Integer>();
+
+    public ExamenAlumno() throws HeadlessException, SQLException, ClassNotFoundException {
+
         initComponents();
-        
+
         try {
             Conexion.crearConexion();
             conectarBD();
@@ -35,11 +44,13 @@ public class ExamenAlumno extends javax.swing.JFrame {
         grupoBotones.add(radC);
         grupoBotones.add(radD);
     }
+
     
     /**
      * Carga los registros de la base de datos
      */
     void conectarBD() {
+
         Inciso inciso = new Inciso();
         try {
             inciso = ExamenControlador.CargarRegistrosBD();
@@ -49,19 +60,36 @@ public class ExamenAlumno extends javax.swing.JFrame {
         
         refrescarEtiquetas(inciso);
     }
+
     
     /**
      * Refresca las etiquetas de la ventana mostrando la información del inciso
      * dado
      * @param inciso el inciso del que se va a sacar la información
      */
+
     void refrescarEtiquetas(Inciso inciso) {
+        respuestasCorrectas.add(inciso.getRespuestaCorrecta());
         List<String> respuestas = inciso.getRespuestas();
         lblPregunta.setText(inciso.getPregunta());
+        radA.setSelected(false);
+        radB.setSelected(false);
+        radC.setSelected(false);
+        radD.setSelected(false);
         lblA.setText(respuestas.get(0));
         lblB.setText(respuestas.get(1));
         lblC.setText(respuestas.get(2));
         lblD.setText(respuestas.get(3));
+    }
+
+    int calificar(ArrayList seleccionadas, ArrayList Correctas) {
+        int calificacion = 0;
+        for (int i = 1; i != respuestasCorrectas.size(); i++) {
+            if (Objects.equals(respuestasCorrectas.get(i - 1), respuestasSelecionadas.get(i - 1))) {
+                calificacion++;
+            }
+        }
+        return calificacion;
     }
 
     /**
@@ -246,17 +274,36 @@ public class ExamenAlumno extends javax.swing.JFrame {
     }//GEN-LAST:event_buttAnteriorActionPerformed
 
     private void buttSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttSiguienteActionPerformed
-        try {
-            Inciso inciso = ExamenControlador.SiguienteBD();
-            refrescarEtiquetas(inciso);
-        } catch (HeadlessException | SQLException ex) {
-            System.out.println(ex.getMessage());
-        } catch (IndexOutOfBoundsException ex) {
-            int respuestaMensaje = JOptionPane.showConfirmDialog(null, "Última pregunta alcanzada. ¿Proceder a la calificación?", "Finalizar", JOptionPane.YES_NO_OPTION);
-            if (respuestaMensaje == JOptionPane.YES_OPTION) {
-                this.dispose();
-                Calificacion ventana = new Calificacion();
-                ventana.setVisible(true);
+        if (radA.isSelected() == false && radB.isSelected() == false &&
+                radC.isSelected() == false && radD.isSelected() == false) {
+            JOptionPane.showMessageDialog(null, "No hay respuesta");
+        } else {
+            try {
+                Inciso inciso = ExamenControlador.SiguienteBD();
+                if (radA.isSelected() == true) {
+                    respuestasSelecionadas.add(1);
+                } else if (radB.isSelected() == true) {
+                    respuestasSelecionadas.add(2);
+                } else if (radC.isSelected() == true) {
+                    respuestasSelecionadas.add(3);
+                } else if (radD.isSelected() == true) {
+                    respuestasSelecionadas.add(4);
+                }
+                refrescarEtiquetas(inciso);
+            } catch (HeadlessException | SQLException ex) {
+                System.out.println(ex.getMessage());
+            } catch (IndexOutOfBoundsException ex) {
+                int respuestaMensaje = JOptionPane.showConfirmDialog(null, "Última pregunta alcanzada. ¿Proceder a la calificación?", "Finalizar", JOptionPane.YES_NO_OPTION);
+                if (respuestaMensaje == JOptionPane.YES_OPTION) {
+
+                    int calificacion = calificar(respuestasSelecionadas, respuestasSelecionadas);
+                    this.dispose();
+                    Calificacion ventana = new Calificacion();
+                    ventana.setCalificacion(calificacion);
+                    ventana.setCorrectas(respuestasSelecionadas.size());
+                    ventana.setTotales(respuestasSelecionadas.size());
+                    ventana.setVisible(true);
+                }
             }
         }
     }//GEN-LAST:event_buttSiguienteActionPerformed
