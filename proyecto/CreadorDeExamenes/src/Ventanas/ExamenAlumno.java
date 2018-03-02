@@ -105,7 +105,6 @@ public class ExamenAlumno extends javax.swing.JFrame {
         lblB = new javax.swing.JLabel();
         lblC = new javax.swing.JLabel();
         lblD = new javax.swing.JLabel();
-        buttAnterior = new javax.swing.JButton();
         buttSiguiente = new javax.swing.JButton();
         buttRegresar = new javax.swing.JButton();
 
@@ -191,13 +190,6 @@ public class ExamenAlumno extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        buttAnterior.setText("<-");
-        buttAnterior.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttAnteriorActionPerformed(evt);
-            }
-        });
-
         buttSiguiente.setText("->");
         buttSiguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,8 +214,7 @@ public class ExamenAlumno extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttAnterior)
-                        .addGap(64, 64, 64)
+                        .addGap(109, 109, 109)
                         .addComponent(buttRegresar)
                         .addGap(64, 64, 64)
                         .addComponent(buttSiguiente)))
@@ -238,7 +229,6 @@ public class ExamenAlumno extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttAnterior)
                     .addComponent(buttSiguiente)
                     .addComponent(buttRegresar))
                 .addContainerGap(64, Short.MAX_VALUE))
@@ -256,17 +246,6 @@ public class ExamenAlumno extends javax.swing.JFrame {
         PanelCreacionExamen ventana = new PanelCreacionExamen();
         ventana.setVisible(true);
     }//GEN-LAST:event_buttRegresarActionPerformed
-
-    private void buttAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttAnteriorActionPerformed
-        Inciso inciso;
-        try {
-            inciso = ExamenControlador.AnteriorBD();
-            refrescarEtiquetas(inciso);
-            grupoBotones.clearSelection();
-        } catch (HeadlessException | SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }//GEN-LAST:event_buttAnteriorActionPerformed
 
     private void buttSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttSiguienteActionPerformed
 
@@ -345,7 +324,6 @@ public class ExamenAlumno extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttAnterior;
     private javax.swing.JButton buttRegresar;
     private javax.swing.JButton buttSiguiente;
     private javax.swing.ButtonGroup grupoBotones;
