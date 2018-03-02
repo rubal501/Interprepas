@@ -422,7 +422,7 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
         try {
             Conexion.crearConexion();
         } catch (SQLException | ClassNotFoundException ex) {
-            System.out.println("a");
+            System.out.println(ex.getMessage());
         }
     }
 

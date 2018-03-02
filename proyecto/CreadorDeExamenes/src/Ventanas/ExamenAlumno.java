@@ -15,15 +15,14 @@ import javax.swing.JOptionPane;
 /**
  * @author AlRu
  */
-
-public class ExamenAlumno extends javax.swing.JFrame {  
+public class ExamenAlumno extends javax.swing.JFrame {
 
     /**
      * Inicializa la ventana y sus componentes
+     *
      * @throws SQLException si hubo un error al ejecutar el comando sql
      * @throws ClassNotFoundException si hubo un error al buscar un driver
      */
-
     ArrayList<Integer> respuestasSelecionadas = new ArrayList<Integer>();
     ArrayList<Integer> respuestasCorrectas = new ArrayList<Integer>();
 
@@ -38,14 +37,13 @@ public class ExamenAlumno extends javax.swing.JFrame {
             this.dispose();
             throw ex;
         }
-        
+
         grupoBotones.add(radA);
         grupoBotones.add(radB);
         grupoBotones.add(radC);
         grupoBotones.add(radD);
     }
 
-    
     /**
      * Carga los registros de la base de datos
      */
@@ -57,25 +55,21 @@ public class ExamenAlumno extends javax.swing.JFrame {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-        
+
         refrescarEtiquetas(inciso);
     }
 
-    
     /**
      * Refresca las etiquetas de la ventana mostrando la información del inciso
      * dado
+     *
      * @param inciso el inciso del que se va a sacar la información
      */
-
     void refrescarEtiquetas(Inciso inciso) {
         respuestasCorrectas.add(inciso.getRespuestaCorrecta());
         List<String> respuestas = inciso.getRespuestas();
         lblPregunta.setText(inciso.getPregunta());
-        radA.setSelected(false);
-        radB.setSelected(false);
-        radC.setSelected(false);
-        radD.setSelected(false);
+        grupoBotones.clearSelection();
         lblA.setText(respuestas.get(0));
         lblB.setText(respuestas.get(1));
         lblC.setText(respuestas.get(2));
@@ -171,7 +165,7 @@ public class ExamenAlumno extends javax.swing.JFrame {
                                 .addComponent(radD)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lblD)))))
-                .addContainerGap(223, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,7 +217,7 @@ public class ExamenAlumno extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
@@ -268,14 +262,16 @@ public class ExamenAlumno extends javax.swing.JFrame {
         try {
             inciso = ExamenControlador.AnteriorBD();
             refrescarEtiquetas(inciso);
+            grupoBotones.clearSelection();
         } catch (HeadlessException | SQLException ex) {
             System.out.println(ex.getMessage());
         }
     }//GEN-LAST:event_buttAnteriorActionPerformed
 
     private void buttSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttSiguienteActionPerformed
-        if (radA.isSelected() == false && radB.isSelected() == false &&
-                radC.isSelected() == false && radD.isSelected() == false) {
+
+        if (radA.isSelected() == false && radB.isSelected() == false
+                && radC.isSelected() == false && radD.isSelected() == false) {
             JOptionPane.showMessageDialog(null, "No hay respuesta");
         } else {
             try {
@@ -304,6 +300,7 @@ public class ExamenAlumno extends javax.swing.JFrame {
                     ventana.setTotales(respuestasSelecionadas.size());
                     ventana.setVisible(true);
                 }
+
             }
         }
     }//GEN-LAST:event_buttSiguienteActionPerformed
