@@ -10,7 +10,11 @@ package Ventanas;
 import Negocio.Controlador.ExamenControlador;
 import Negocio.Modelo.Examen;
 import Negocio.Modelo.Inciso;
+import java.awt.HeadlessException;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -35,7 +39,11 @@ public class ExamenAlumno extends javax.swing.JFrame {
     
     void conectarBD() {
         Inciso inciso = new Inciso();
-        inciso = ExamenControlador.CargarRegistrosBD();
+        try {
+            inciso = ExamenControlador.CargarRegistrosBD();
+        } catch (HeadlessException | SQLException ex) {
+            System.out.println("a");
+        }
         refrescarEtiquetas(inciso);
     }
     
@@ -232,13 +240,22 @@ public class ExamenAlumno extends javax.swing.JFrame {
     }//GEN-LAST:event_buttRegresarActionPerformed
 
     private void buttAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttAnteriorActionPerformed
-        Inciso inciso = ExamenControlador.AnteriorBD();
+        Inciso inciso;
+        try {
+            inciso = ExamenControlador.AnteriorBD();
         refrescarEtiquetas(inciso);
+        } catch (HeadlessException | SQLException ex) {
+            System.out.println("b");
+        }
     }//GEN-LAST:event_buttAnteriorActionPerformed
 
     private void buttSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttSiguienteActionPerformed
-        Inciso inciso = ExamenControlador.SiguienteBD();
-        refrescarEtiquetas(inciso);
+        try {
+            Inciso inciso = ExamenControlador.SiguienteBD();
+            refrescarEtiquetas(inciso);
+        } catch (HeadlessException | SQLException ex) {
+            System.out.println("c");
+        }
     }//GEN-LAST:event_buttSiguienteActionPerformed
 
     /**

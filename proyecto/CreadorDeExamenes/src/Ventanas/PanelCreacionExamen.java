@@ -8,9 +8,11 @@ package Ventanas;
 import Negocio.Controlador.Conexion;
 import Negocio.Controlador.ExamenControlador;
 import Negocio.Modelo.Inciso;
-import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JTextField;
 import javax.swing.JOptionPane;
@@ -20,6 +22,7 @@ import javax.swing.JOptionPane;
  * @author ROOT
  */
 public class PanelCreacionExamen extends javax.swing.JFrame {
+
     List<JTextField> camposDeTexto;
 
     /**
@@ -27,7 +30,7 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
      */
     public PanelCreacionExamen() {
         initComponents();
-        
+
         camposDeTexto = new ArrayList<JTextField>();
         camposDeTexto.add(txtPregunta);
         camposDeTexto.add(txtPrimeraRespuesta);
@@ -190,20 +193,18 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(73, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(108, 108, 108)
-                        .addComponent(jLabel1)))
-                .addContainerGap(74, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(buttContestar)
-                .addGap(32, 32, 32)
-                .addComponent(buttAgregarInciso)
-                .addGap(32, 32, 32)
-                .addComponent(buttSalir)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(buttContestar)
+                        .addGap(32, 32, 32)
+                        .addComponent(buttAgregarInciso)
+                        .addGap(32, 32, 32)
+                        .addComponent(buttSalir)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -228,15 +229,18 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
         for (JTextField campoDeTexto : camposDeTexto) {
             if (!campoDeTexto.getText().equals("")) {
                 int respuestaMensaje = JOptionPane.showConfirmDialog(null, "Se detectaron cambios pendientes. ¿Continuar sin guardar los cambios actuales?", "Cambios detectados", JOptionPane.YES_NO_OPTION);
-                if (respuestaMensaje == JOptionPane.YES_OPTION)
+                if (respuestaMensaje == JOptionPane.YES_OPTION) {
                     this.dispose();
-                else return;
+                } else {
+                    return;
+                }
             }
         }
-        
+
         int respuestaMensaje = JOptionPane.showConfirmDialog(null, "¿Salir del programa?", "Confirmar salida", JOptionPane.YES_NO_OPTION);
-        if (respuestaMensaje == JOptionPane.YES_OPTION)
+        if (respuestaMensaje == JOptionPane.YES_OPTION) {
             this.dispose();
+        }
     }//GEN-LAST:event_buttSalirActionPerformed
 
     private void buttAgregarIncisoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttAgregarIncisoActionPerformed
@@ -246,25 +250,34 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
                 return;
             }
         }
-        
+
         String pregunta = txtPregunta.getText();
-         String respuestaPrimera;
-     String respuestaSegunda;
-     String respuestaTercera;
-    String respuestaCuarta;
+        String respuestaPrimera;
+        String respuestaSegunda;
+        String respuestaTercera;
+        String respuestaCuarta;
         int respuestaCorrecta = cmbRespuestaCorrecta.getSelectedIndex();
-        
+
         respuestaPrimera = txtPrimeraRespuesta.getText();
         respuestaSegunda = txtSegundaRespuesta.getText();
         respuestaTercera = txtTerceraRespuesta.getText();
         respuestaCuarta = txtCuartaRespuesta.getText();
-        
-        Inciso inciso = new Inciso (pregunta, respuestaCorrecta,
-        respuestaPrimera,  respuestaSegunda,respuestaTercera , respuestaCuarta);
-        ExamenControlador.GuardarRegistro(inciso);
-        
-        for (JTextField campoDeTexto : camposDeTexto)
+    
+
+        try {
+            Inciso inciso = new Inciso(pregunta, respuestaCorrecta,
+            respuestaPrimera,respuestaSegunda,respuestaTercera, respuestaCuarta);
+            ExamenControlador.GuardarRegistroBD(inciso);
+            JOptionPane.showMessageDialog(null, "Se ha agregado correctamente al inciso");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "No se pudo agregar el inciso debido a un error interno, intentelo más tarde");
+        }
+//        Alejandro cree que esta aprte funciona para enviar errores que especificamente
+//        esten relacionados a la base de datos
+
+        for (JTextField campoDeTexto : camposDeTexto) {
             campoDeTexto.setText("");
+        }
     }//GEN-LAST:event_buttAgregarIncisoActionPerformed
 
     private void cmbRespuestaCorrectaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRespuestaCorrectaActionPerformed
@@ -283,12 +296,14 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
         for (JTextField campoDeTexto : camposDeTexto) {
             if (!campoDeTexto.getText().equals("")) {
                 int respuestaMensaje = JOptionPane.showConfirmDialog(null, "Se detectaron cambios pendientes. ¿Continuar sin guardar los cambios actuales?", "Cambios detectados", JOptionPane.YES_NO_OPTION);
-                if (respuestaMensaje == JOptionPane.YES_OPTION)
+                if (respuestaMensaje == JOptionPane.YES_OPTION) {
                     break;
-                else return;
+                } else {
+                    return;
+                }
             }
         }
-        
+
         this.dispose();
         ExamenAlumno ventana = new ExamenAlumno();
         ventana.setVisible(true);
@@ -298,10 +313,11 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+            * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -327,8 +343,20 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
                 new PanelCreacionExamen().setVisible(true);
             }
         });
-        
-        Conexion.crearConexion();
+
+        try {
+            Conexion.crearConexion();
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println("a");
+        }
+        /*
+        try {
+            Conexion.ejecutarSQL("insert into incisos values(\"1114\", \"preg\","
+                                 + "\"r1\", \"r2\", \"r3\", \"r4\", \"1\", "
+                                 + "\"6\", \"1402\")");
+        } catch (SQLException ex) {
+            System.out.println("z");
+        }*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
