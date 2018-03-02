@@ -316,6 +316,7 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Se ha agregado correctamente al inciso");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se pudo agregar el inciso debido a un error interno, intentelo más tarde");
+            ex.printStackTrace();
         }
 //        Alejandro cree que esta aprte funciona para enviar errores que especificamente
 //        esten relacionados a la base de datos

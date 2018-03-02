@@ -33,14 +33,14 @@ public class Conexion {
      * @throws ClassNotFoundException si hay un error al leer el driver de jdbc
      */
     public static boolean crearConexion() throws SQLException,
-                                                 ClassNotFoundException {
+            ClassNotFoundException {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conexionOK = DriverManager.getConnection("jdbc:mysql://localhost:3306/Preguntas", "root", "");
         } catch (SQLException | ClassNotFoundException ex) {
             throw ex;
         }
-        
+
         return true;
     }
 

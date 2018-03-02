@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `incisos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `incisos` (
-  `identificador` char(4) DEFAULT NULL,
+  `identificador` int(11) NOT NULL AUTO_INCREMENT,
   `textoPregunta` char(200) DEFAULT NULL,
   `primeraRespuesta` char(130) DEFAULT NULL,
   `segundaRespuesta` char(130) DEFAULT NULL,
@@ -31,8 +31,9 @@ CREATE TABLE `incisos` (
   `cuartaRespuesta` char(130) DEFAULT NULL,
   `respuestaCorrecta` int(1) DEFAULT NULL,
   `grado` char(1) DEFAULT NULL,
-  `claveAsignatura` char(4) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `claveAsignatura` char(4) DEFAULT NULL,
+  UNIQUE KEY `identificador` (`identificador`)
+) ENGINE=InnoDB AUTO_INCREMENT=1117 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,8 +42,9 @@ CREATE TABLE `incisos` (
 
 LOCK TABLES `incisos` WRITE;
 /*!40000 ALTER TABLE `incisos` DISABLE KEYS */;
-INSERT INTO `incisos` VALUES ('1111','Masa del sol?','seul','32','Dinamarca','otto von shenider',2,'6','1400'),('1112','Masa del sol?','seul','32','Dinamarca','otto von shenider',1,'6','1400');
+INSERT INTO `incisos` VALUES (1058,'marco?','polo','don','as','fadfas',0,'4','null'),(1111,'Masa del sol?','seul','32','Dinamarca','otto von shenider',2,'6','1400'),(1113,'Masa de tijuana?','seul','32','Dinamarca','otto von shenider',2,'6','1400'),(1114,'Masa de tijuana?','lorem','ipsum','er','asdasd',2,'6','1400'),(1115,'asdasd','asdsadsad','asdasdas','dasdasd','dsadasdasdas',1,'4','1401'),(1116,'dasdsadsad','asdsadas','dsadasdas','dasdsadasd','sadsadasfgethhhrewtrgsfg',1,'6','1602');
 /*!40000 ALTER TABLE `incisos` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -53,4 +55,4 @@ INSERT INTO `incisos` VALUES ('1111','Masa del sol?','seul','32','Dinamarca','ot
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-15 21:31:46
+-- Dump completed on 2018-03-01 21:59:54

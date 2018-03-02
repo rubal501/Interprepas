@@ -43,15 +43,17 @@ public class ExamenControlador {
             JOptionPane.showMessageDialog(null, "Se ha agregado correctamente al inciso");
         }
     }
+
     public static void GuardarRegistroBD(Inciso i) throws SQLException {
 
-        sql = "insert into incisos values(\""+i.identificador+"\", \""+i.pregunta
-               +"\", \""+i.respuestas.get(0)+"\", \""+i.respuestas.get(1)
-               +"\", \""+i.respuestas.get(2)+"\", \""+i.respuestas.get(3) 
-               +"\", \""+i.getRespuestaCorrecta()+"\", \""+i.getGrado()
-               +"\", \""+i.getAsignatura()+"\")";
+        sql = "insert into incisos (textoPregunta, primeraRespuesta, segundaRespuesta,"
+                + "terceraRespuesta, cuartaRespuesta, respuestaCorrecta, grado,"
+                + "claveAsignatura)  values(\"" + i.pregunta
+                + "\", \"" + i.respuestas.get(0) + "\", \"" + i.respuestas.get(1)
+                + "\", \"" + i.respuestas.get(2) + "\", \"" + i.respuestas.get(3)
+                + "\", \"" + i.getRespuestaCorrecta() + "\", \"" + i.getGrado()
+                + "\", \"" + i.getAsignatura() + "\")";
 
-        
 //        Alejabndro se esta encargando de hacer que los datos dejen de estar fijos
         System.out.println(sql);
 
@@ -75,7 +77,6 @@ public class ExamenControlador {
         return inciso;
     }
 
-
     public static String MostrarRegistros() {
         String Linea = "", Linea2;
         for (int i = 0; i < registro.size(); i++) {
@@ -90,16 +91,14 @@ public class ExamenControlador {
 
     public static Inciso CargarRegistrosBD() throws HeadlessException, SQLException {
 
-        sql = "select * from incisos";
+        sql = "select * from incisos;";
 
         try {
             resultado = Conexion.ejecutarSQLSelect(sql);
             if (resultado.first()) //primero sin if y sin el else ;)
             {
-               
-                
-                inciso.identificador = resultado.getString("identificador");
 
+                inciso.identificador = resultado.getString("identificador");
                 inciso.respuestas.set(0, resultado.getString("primeraRespuesta"));
                 inciso.respuestas.set(1, resultado.getString("segundaRespuesta"));
                 inciso.respuestas.set(2, resultado.getString("terceraRespuesta"));
