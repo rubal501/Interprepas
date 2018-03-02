@@ -39,7 +39,16 @@ public class ExamenAlumno extends javax.swing.JFrame {
         refrescarEtiquetas(inciso);
     }
     
+    void resetearEtiquetas(){
+        lblPregunta.setText("");
+        lblA.setText("");
+        lblB.setText("");
+        lblC.setText("");
+        lblD.setText("");
+    }
+    
     void refrescarEtiquetas(Inciso inciso) {
+        resetearEtiquetas();
         lblPregunta.setText(inciso.getPregunta());
         lblA.setText(inciso.getRespuestaPrimera());
         lblB.setText(inciso.getRespuestaSegunda());
