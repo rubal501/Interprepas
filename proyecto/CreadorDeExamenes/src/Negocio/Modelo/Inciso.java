@@ -46,14 +46,38 @@ public class Inciso {
     }
 
     public Inciso(String pregunta, char grado, int respuestaCorrecta, List<String> respuestas, String asignatura) {
-
+        
+        this.asignatura = asignatura ;
         this.pregunta = pregunta;
         this.grado = grado;
         this.respuestaCorrecta = respuestaCorrecta;
-        this.identificador = "1058";
+        //this.identificador = identificador;
         this.respuestas = respuestas;
 
     }
+
+/**
+     *
+     * Constructor utilizado para los casos donde las preguntas se manejen como
+     * variables independientes
+     *
+     * @param sql Cadena que contiene la instrucción SQL a ejecutar
+     * @return resultado regresa los registros generados por la consulta
+     * @throws SQLException si no se pudo ejecutar el comando
+     *
+     */
+    public Inciso(String pregunta, char grado, int respuestaCorrecta, String asignatura, String respuestaPrimera, String respuestaSegunda, String respuestaTercera, String respuestaCuarta) {
+        this.pregunta = pregunta;
+        this.grado = grado;
+        this.respuestaCorrecta = respuestaCorrecta;
+        this.asignatura = asignatura;
+        this.respuestaPrimera = respuestaPrimera;
+        this.respuestaSegunda = respuestaSegunda;
+        this.respuestaTercera = respuestaTercera;
+        this.respuestaCuarta = respuestaCuarta;
+    }
+    
+    
 
     public String getPregunta() {
         return pregunta;

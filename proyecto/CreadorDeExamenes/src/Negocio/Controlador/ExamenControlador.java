@@ -43,21 +43,22 @@ public class ExamenControlador {
             JOptionPane.showMessageDialog(null, "Se ha agregado correctamente al inciso");
         }
     }
+
     public static void GuardarRegistroBD(Inciso i) throws SQLException {
 
-        sql = "insert into incisos values(\""+i.identificador+"\", \""+i.pregunta
-               +"\", \""+i.respuestas.get(0)+"\", \""+i.respuestas.get(1)
-               +"\", \""+i.respuestas.get(2)+"\", \""+i.respuestas.get(3) 
-               +"\", \""+i.getRespuestaCorrecta()+"\", \""+i.getGrado()
-               +"\", \""+i.getAsignatura()+"\")";
+        sql = "insert into incisos (textoPregunta, primeraRespuesta, segundaRespuesta,"
+                + "terceraRespuesta, cuartaRespuesta, respuestaCorrecta, grado,"
+                + "claveAsignatura)  values(\"" + i.pregunta
+                + "\", \"" + i.respuestas.get(0) + "\", \"" + i.respuestas.get(1)
+                + "\", \"" + i.respuestas.get(2) + "\", \"" + i.respuestas.get(3)
+                + "\", \"" + i.getRespuestaCorrecta() + "\", \"" + i.getGrado()
+                + "\", \"" + i.getAsignatura() + "\")";
 
-        
-<<<<<<< HEAD
+
+
 //        Alejabndro se esta encargando de hacer que los datos dejen de estar fijos
         System.out.println(sql);
 
-=======
->>>>>>> Alejandro2
         try {
             Conexion.ejecutarSQL(sql);
         } catch (SQLException ex) {
@@ -79,7 +80,6 @@ public class ExamenControlador {
     }
 <<<<<<< HEAD
 
-
     public static String MostrarRegistros() {
         String Linea = "", Linea2;
         for (int i = 0; i < registro.size(); i++) {
@@ -94,26 +94,14 @@ public class ExamenControlador {
 =======
 */
     //public static String MostrarRegistros() 
->>>>>>> Alejandro2
 
     public static Inciso CargarRegistrosBD() throws HeadlessException, SQLException {
 
-        sql = "select * from incisos";
+        sql = "select * from incisos;";
 
         try {
             resultado = Conexion.ejecutarSQLSelect(sql);
-<<<<<<< HEAD
-            if (resultado.first()) //primero sin if y sin el else ;)
-            {
-               
-                
-                inciso.identificador = resultado.getString("identificador");
 
-                inciso.respuestas.set(0, resultado.getString("primeraRespuesta"));
-                inciso.respuestas.set(1, resultado.getString("segundaRespuesta"));
-                inciso.respuestas.set(2, resultado.getString("terceraRespuesta"));
-                inciso.respuestas.set(3, resultado.getString("cuartaRespuesta"));
-=======
             if (resultado.first()) {
                 inciso.pregunta = resultado.getString("textoPregunta");
                 inciso.identificador = resultado.getString("identificador");
@@ -121,23 +109,11 @@ public class ExamenControlador {
                 inciso.respuestas.add(resultado.getString("segundaRespuesta"));
                 inciso.respuestas.add(resultado.getString("terceraRespuesta"));
                 inciso.respuestas.add(resultado.getString("cuartaRespuesta"));
->>>>>>> Alejandro2
+
                 inciso.respuestaCorrecta = resultado.getInt("respuestaCorrecta");
                 inciso.asignatura = resultado.getString("claveAsignatura");
                 inciso.grado = resultado.getString("grado").charAt(0);
-<<<<<<< HEAD
 
-//            TODO
-//            utilizar setter y getters
-            } else {
-                JOptionPane.showMessageDialog(null, "No hay ningún registro :P");
-
-                inciso.identificador = "";
-                inciso.setRespuestaPrimera("");
-                inciso.setRespuestaSegunda("");
-                inciso.setRespuestaTercera("");
-                inciso.setRespuestaCuarta("");
-=======
             } else {
                 JOptionPane.showMessageDialog(null, "No hay ningún registro");
                 inciso.identificador = "";
@@ -145,7 +121,7 @@ public class ExamenControlador {
                 inciso.respuestas.add("");
                 inciso.respuestas.add("");
                 inciso.respuestas.add("");
->>>>>>> Alejandro2
+
                 inciso.respuestaCorrecta = 0;
                 inciso.asignatura = "";
                 inciso.grado = '\0';
@@ -166,17 +142,12 @@ public class ExamenControlador {
                 inciso.respuestas.clear();
                 inciso.pregunta = resultado.getString("textoPregunta");
                 inciso.identificador = resultado.getString("identificador");
-<<<<<<< HEAD
-                inciso.setRespuestaPrimera(resultado.getString("primeraRespuesta"));
-                inciso.setRespuestaSegunda(resultado.getString("segundaRespuesta"));
-                inciso.setRespuestaTercera(resultado.getString("terceraRespuesta"));
-                inciso.setRespuestaCuarta(resultado.getString("cuartaRespuesta"));
-=======
+
                 inciso.respuestas.add(resultado.getString("primeraRespuesta"));
                 inciso.respuestas.add(resultado.getString("segundaRespuesta"));
                 inciso.respuestas.add(resultado.getString("terceraRespuesta"));
                 inciso.respuestas.add(resultado.getString("cuartaRespuesta"));
->>>>>>> Alejandro2
+
                 inciso.respuestaCorrecta = resultado.getInt("respuestaCorrecta");
                 inciso.asignatura = resultado.getString("claveAsignatura");
                 inciso.grado = resultado.getString("grado").charAt(0);
@@ -199,17 +170,12 @@ public class ExamenControlador {
                 inciso.respuestas.clear();
                 inciso.pregunta = resultado.getString("textoPregunta");
                 inciso.identificador = resultado.getString("identificador");
-<<<<<<< HEAD
-                inciso.setRespuestaPrimera(resultado.getString("primeraRespuesta"));
-                inciso.setRespuestaSegunda(resultado.getString("segundaRespuesta"));
-                inciso.setRespuestaTercera(resultado.getString("terceraRespuesta"));
-                inciso.setRespuestaCuarta(resultado.getString("cuartaRespuesta"));
-=======
+
                 inciso.respuestas.add(resultado.getString("primeraRespuesta"));
                 inciso.respuestas.add(resultado.getString("segundaRespuesta"));
                 inciso.respuestas.add(resultado.getString("terceraRespuesta"));
                 inciso.respuestas.add(resultado.getString("cuartaRespuesta"));
->>>>>>> Alejandro2
+
                 inciso.respuestaCorrecta = resultado.getInt("respuestaCorrecta");
                 inciso.asignatura = resultado.getString("claveAsignatura");
                 inciso.grado = resultado.getString("grado").charAt(0);

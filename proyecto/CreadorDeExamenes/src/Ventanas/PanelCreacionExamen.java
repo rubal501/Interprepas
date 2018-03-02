@@ -317,6 +317,7 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Se ha agregado correctamente al inciso");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se pudo agregar el inciso debido a un error interno, intentelo más tarde");
+            ex.printStackTrace();
         }
 
         for (JTextField campoDeTexto : camposDeTexto) {
