@@ -133,10 +133,10 @@ public class ExamenControlador {
         return inciso;
     }
 
-    public static Inciso SiguienteBD() throws HeadlessException, SQLException {
+    public static Inciso SiguienteBD() throws HeadlessException, SQLException, IndexOutOfBoundsException {
         try {
             if (resultado.isLast()) {
-                JOptionPane.showMessageDialog(null, "Último registro de la base");
+                throw new IndexOutOfBoundsException();
             } else {
                 resultado.next();
                 inciso.respuestas.clear();
@@ -153,7 +153,7 @@ public class ExamenControlador {
                 inciso.grado = resultado.getString("grado").charAt(0);
             }
 
-        } catch (HeadlessException | SQLException ex) {
+        } catch (HeadlessException | SQLException | IndexOutOfBoundsException ex) {
             throw ex;
         }
         return inciso;

@@ -207,16 +207,14 @@ public class ExamenAlumno extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(131, Short.MAX_VALUE)
-                .addComponent(buttAnterior)
-                .addGap(64, 64, 64)
-                .addComponent(buttRegresar)
-                .addGap(64, 64, 64)
-                .addComponent(buttSiguiente)
-                .addContainerGap(131, Short.MAX_VALUE))
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(buttAnterior)
+                        .addGap(64, 64, 64)
+                        .addComponent(buttRegresar)
+                        .addGap(64, 64, 64)
+                        .addComponent(buttSiguiente)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,6 +260,13 @@ public class ExamenAlumno extends javax.swing.JFrame {
             refrescarEtiquetas(inciso);
         } catch (HeadlessException | SQLException ex) {
             System.out.println(ex.getMessage());
+        } catch (IndexOutOfBoundsException ex) {
+            int respuestaMensaje = JOptionPane.showConfirmDialog(null, "Última pregunta alcanzada. ¿Proceder a la calificación?", "Finalizar", JOptionPane.YES_NO_OPTION);
+            if (respuestaMensaje == JOptionPane.YES_OPTION) {
+                this.dispose();
+                Calificacion ventana = new Calificacion();
+                ventana.setVisible(true);
+            }
         }
     }//GEN-LAST:event_buttSiguienteActionPerformed
 
