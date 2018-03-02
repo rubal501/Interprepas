@@ -15,11 +15,20 @@ import javax.swing.JOptionPane;
 
 /**
  *
+ * <<<<<<< HEAD @a
+ *
+ *
+ * uthor rubal y ale >:( NOTA IMPORTANTE El orden de los datos en la database es
+ * el siguiente: identificador int(1), textoPregunta char(200), primerRespuesta
+ * char(130), segundaRespuesta char(130),terceraRespuesta char(130),
+ * ,cuartaRespuesta char(130), respuestaCorrecta int(1), grado char(1),
+ * claveAsignatura char(4) =======
+ *
  * @author rubal y ale >:( NOTA IMPORTANTE El orden de los datos en la database
  * es el siguiente: identificador int(1), textoPregunta char(200),
  * primerRespuesta char(130), segundaRespuesta char(130),terceraRespuesta
  * char(130), ,cuartaRespuesta char(130), respuestaCorrecta int(1), grado
- * char(1), claveAsignatura char(4)
+ * char(1), claveAsignatura char(4) >>>>>>> Alejandro2
  */
 public class ExamenControlador {
 
@@ -36,12 +45,20 @@ public class ExamenControlador {
     }
 
     public static void GuardarRegistroBD(Inciso i) throws SQLException {
-        sql = "insert into incisos values(\""+i.identificador+"\", \""+i.pregunta
-               +"\", \""+i.respuestas.get(0)+"\", \""+i.respuestas.get(1)
-               +"\", \""+i.respuestas.get(2)+"\", \""+i.respuestas.get(3) 
-               +"\", \""+i.getRespuestaCorrecta()+"\", \""+i.getGrado()
-               +"\", \""+i.getAsignatura()+"\")";
-        
+
+        sql = "insert into incisos (textoPregunta, primeraRespuesta, segundaRespuesta,"
+                + "terceraRespuesta, cuartaRespuesta, respuestaCorrecta, grado,"
+                + "claveAsignatura)  values(\"" + i.pregunta
+                + "\", \"" + i.respuestas.get(0) + "\", \"" + i.respuestas.get(1)
+                + "\", \"" + i.respuestas.get(2) + "\", \"" + i.respuestas.get(3)
+                + "\", \"" + i.getRespuestaCorrecta() + "\", \"" + i.getGrado()
+                + "\", \"" + i.getAsignatura() + "\")";
+
+
+
+//        Alejabndro se esta encargando de hacer que los datos dejen de estar fijos
+        System.out.println(sql);
+
         try {
             Conexion.ejecutarSQL(sql);
         } catch (SQLException ex) {
@@ -53,24 +70,38 @@ public class ExamenControlador {
 
         sql = "delete from incisos where nocta='" + inciso.identificador + "'";
         if (inciso.identificador.isEmpty()) {
+
             JOptionPane.showMessageDialog(null, "Ya no hay registros o registro en blanco");
-        } else {
-            if (Conexion.ejecutarSQL(sql)) {
-                JOptionPane.showMessageDialog(null, "Se ha eliminado correctamente al inciso");
-                inciso = CargarRegistrosBD();
-            }
+        } else if (Conexion.ejecutarSQL(sql)) {
+            JOptionPane.showMessageDialog(null, "Se ha eliminado correctamente al inciso");
+            inciso = CargarRegistrosBD();
         }
         return inciso;
     }
+<<<<<<< HEAD
+
+    public static String MostrarRegistros() {
+        String Linea = "", Linea2;
+        for (int i = 0; i < registro.size(); i++) {
+            inciso = (Inciso) registro.get(i);
+            Linea2 = inciso.identificador + " " + inciso.getRespuestaPrimera() + " " + inciso.getRespuestaSegunda() + " " + inciso.getRespuestaTercera() + " "
+                    + inciso.getRespuestaCuarta() + " " + inciso.respuestaCorrecta + " " + inciso.asignatura + " " + inciso.grado;
+
+            Linea = Linea + Linea2 + "\n";
+        }
+        return Linea;
+    }
+=======
 */
     //public static String MostrarRegistros() 
 
     public static Inciso CargarRegistrosBD() throws HeadlessException, SQLException {
 
-        sql = "select * from incisos";
+        sql = "select * from incisos;";
 
         try {
             resultado = Conexion.ejecutarSQLSelect(sql);
+
             if (resultado.first()) {
                 inciso.pregunta = resultado.getString("textoPregunta");
                 inciso.identificador = resultado.getString("identificador");
@@ -78,9 +109,11 @@ public class ExamenControlador {
                 inciso.respuestas.add(resultado.getString("segundaRespuesta"));
                 inciso.respuestas.add(resultado.getString("terceraRespuesta"));
                 inciso.respuestas.add(resultado.getString("cuartaRespuesta"));
+
                 inciso.respuestaCorrecta = resultado.getInt("respuestaCorrecta");
                 inciso.asignatura = resultado.getString("claveAsignatura");
                 inciso.grado = resultado.getString("grado").charAt(0);
+
             } else {
                 JOptionPane.showMessageDialog(null, "No hay ningún registro");
                 inciso.identificador = "";
@@ -88,9 +121,11 @@ public class ExamenControlador {
                 inciso.respuestas.add("");
                 inciso.respuestas.add("");
                 inciso.respuestas.add("");
+
                 inciso.respuestaCorrecta = 0;
                 inciso.asignatura = "";
                 inciso.grado = '\0';
+
             }
         } catch (HeadlessException | SQLException ex) {
             throw ex;
@@ -107,10 +142,12 @@ public class ExamenControlador {
                 inciso.respuestas.clear();
                 inciso.pregunta = resultado.getString("textoPregunta");
                 inciso.identificador = resultado.getString("identificador");
+
                 inciso.respuestas.add(resultado.getString("primeraRespuesta"));
                 inciso.respuestas.add(resultado.getString("segundaRespuesta"));
                 inciso.respuestas.add(resultado.getString("terceraRespuesta"));
                 inciso.respuestas.add(resultado.getString("cuartaRespuesta"));
+
                 inciso.respuestaCorrecta = resultado.getInt("respuestaCorrecta");
                 inciso.asignatura = resultado.getString("claveAsignatura");
                 inciso.grado = resultado.getString("grado").charAt(0);
@@ -133,10 +170,12 @@ public class ExamenControlador {
                 inciso.respuestas.clear();
                 inciso.pregunta = resultado.getString("textoPregunta");
                 inciso.identificador = resultado.getString("identificador");
+
                 inciso.respuestas.add(resultado.getString("primeraRespuesta"));
                 inciso.respuestas.add(resultado.getString("segundaRespuesta"));
                 inciso.respuestas.add(resultado.getString("terceraRespuesta"));
                 inciso.respuestas.add(resultado.getString("cuartaRespuesta"));
+
                 inciso.respuestaCorrecta = resultado.getInt("respuestaCorrecta");
                 inciso.asignatura = resultado.getString("claveAsignatura");
                 inciso.grado = resultado.getString("grado").charAt(0);

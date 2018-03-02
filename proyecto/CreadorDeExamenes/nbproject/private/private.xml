@@ -3,11 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+            <file>file:/C:/Users/Rubal501/Documents/GitHub/Interprepas/proyecto/CreadorDeExamenes/src/Ventanas/como%20(1).png</file>
+            <file>file:/C:/Users/Rubal501/Documents/GitHub/Interprepas/proyecto/CreadorDeExamenes/src/Negocio/Controlador/Conexion.java</file>
+            <file>file:/C:/Users/Rubal501/Documents/GitHub/Interprepas/proyecto/CreadorDeExamenes/src/Negocio/Controlador/ExamenControlador.java</file>
+            <file>file:/C:/Users/Rubal501/Documents/GitHub/Interprepas/proyecto/CreadorDeExamenes/src/Ventanas/como.png</file>
+            <file>file:/C:/Users/Rubal501/Documents/GitHub/Interprepas/proyecto/CreadorDeExamenes/src/data/Preguntas.sql</file>
+            <file>file:/C:/Users/Rubal501/Documents/GitHub/Interprepas/proyecto/CreadorDeExamenes/src/Ventanas/ExamenAlumno.java</file>
+            <file>file:/C:/Users/Rubal501/Documents/GitHub/Interprepas/proyecto/CreadorDeExamenes/src/Negocio/Modelo/Inciso.java</file>
+            <file>file:/C:/Users/Rubal501/Documents/GitHub/Interprepas/proyecto/CreadorDeExamenes/src/Ventanas/PanelCreacionExamen.java</file>
+=======
             <file>file:/C:/Users/alehd/Documents/GitHub/Interprepas/proyecto/CreadorDeExamenes/src/Negocio/Controlador/Conexion.java</file>
             <file>file:/C:/Users/alehd/Documents/GitHub/Interprepas/proyecto/CreadorDeExamenes/src/Ventanas/PanelCreacionExamen.java</file>
             <file>file:/C:/Users/alehd/Documents/GitHub/Interprepas/proyecto/CreadorDeExamenes/src/Ventanas/ExamenAlumno.java</file>
             <file>file:/C:/Users/alehd/Documents/GitHub/Interprepas/proyecto/CreadorDeExamenes/src/Negocio/Modelo/Inciso.java</file>
             <file>file:/C:/Users/alehd/Documents/GitHub/Interprepas/proyecto/CreadorDeExamenes/src/Negocio/Controlador/ExamenControlador.java</file>
+>>>>>>> Alejandro2
         </group>
     </open-files>
 </project-private>
