@@ -44,10 +44,13 @@ public class ExamenControlador {
         }
     }
     public static void GuardarRegistroBD(Inciso i) throws SQLException {
-        sql = "insert into incisos values(\"" + i.identificador + "\", \"" + i.pregunta
-                + "\", \"" + i.getRespuestaPrimera() + "\", \"" + i.getRespuestaSegunda()
-                + "\", \"" + i.getRespuestaTercera() + "\", \"" + i.getRespuestaCuarta()
-                + "\", \"" + i.getRespuestaCorrecta() + "\", \"6\", \"1408\")";
+
+        sql = "insert into incisos values(\""+i.identificador+"\", \""+i.pregunta
+               +"\", \""+i.respuestas.get(0)+"\", \""+i.respuestas.get(1)
+               +"\", \""+i.respuestas.get(2)+"\", \""+i.respuestas.get(3) 
+               +"\", \""+i.getRespuestaCorrecta()+"\", \""+i.getGrado()
+               +"\", \""+i.getAsignatura()+"\")";
+
         
 //        Alejabndro se esta encargando de hacer que los datos dejen de estar fijos
         System.out.println(sql);
@@ -96,13 +99,14 @@ public class ExamenControlador {
                
                 
                 inciso.identificador = resultado.getString("identificador");
-                inciso.setRespuestaPrimera(resultado.getString("primeraRespuesta"));
-                inciso.setRespuestaSegunda(resultado.getString("segundaRespuesta"));
-                inciso.setRespuestaTercera(resultado.getString("terceraRespuesta"));
-                inciso.setRespuestaCuarta(resultado.getString("cuartaRespuesta"));
+
+                inciso.respuestas.set(0, resultado.getString("primeraRespuesta"));
+                inciso.respuestas.set(1, resultado.getString("segundaRespuesta"));
+                inciso.respuestas.set(2, resultado.getString("terceraRespuesta"));
+                inciso.respuestas.set(3, resultado.getString("cuartaRespuesta"));
                 inciso.respuestaCorrecta = resultado.getInt("respuestaCorrecta");
-                inciso.asignatura = resultado.getString("claveAsignatura");
-                inciso.grado = resultado.getString("claveAsignatura").charAt(0);
+                inciso.asignatura = resultado.getString("asignatura");
+                inciso.grado = resultado.getString("grado").charAt(0);
 
 //            TODO
 //            utilizar setter y getters

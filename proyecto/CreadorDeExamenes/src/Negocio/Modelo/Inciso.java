@@ -18,28 +18,40 @@ public class Inciso {
     public char grado; //(4-6)
     public int respuestaCorrecta; //index de la respuesta correcta (0-3)
     public String identificador;
-    public String asignatura ;
+    public String asignatura;
     public String respuestaPrimera;
     public String respuestaSegunda;
     public String respuestaTercera;
     public String respuestaCuarta;
+    public List<String> respuestas;
 
     public Inciso() {
-        
+
     }
 
-    public Inciso(String pregunta, /*char grado,*/ int respuestaCorrecta, /*int identificador,*/
-            String respuestaPrimera, String respuestaSegunda, String respuestaTercera ,String respuestaCuarta ) {
-        this.pregunta = pregunta;
-        //this.grado = grado;
-        this.respuestaCorrecta = respuestaCorrecta;
+    public List<String> getRespuestas() {
+        return respuestas;
+    }
 
-        //this.identificador = identificador;
-        this.respuestaPrimera = respuestaPrimera ;
+    public void setRespuestas(List<String> respuestas) {
+        this.respuestas = respuestas;
+    }
+
+    public Inciso(String pregunta, char grado, int respuestaCorrecta, /*int identificador,*/
+            String respuestaPrimera, String respuestaSegunda, String respuestaTercera, String respuestaCuarta) {
+        this.respuestaPrimera = respuestaPrimera;
         this.respuestaSegunda = respuestaSegunda;
-        this.respuestaTercera =  respuestaTercera;
+        this.respuestaTercera = respuestaTercera;
         this.respuestaCuarta = respuestaCuarta;
-        
+    }
+
+    public Inciso(String pregunta, char grado, int respuestaCorrecta, List<String> respuestas, String asignatura) {
+
+        this.pregunta = pregunta;
+        this.grado = grado;
+        this.respuestaCorrecta = respuestaCorrecta;
+        this.identificador = "1058";
+        this.respuestas = respuestas;
 
     }
 
@@ -50,7 +62,7 @@ public class Inciso {
     public void setPregunta(String pregunta) {
         this.pregunta = pregunta;
     }
-/*
+
     public char getGrado() {
         return grado;
     }
@@ -58,7 +70,7 @@ public class Inciso {
     public void setGrado(char grado) {
         this.grado = grado;
     }
-*/
+
     public int getRespuestaCorrecta() {
         return respuestaCorrecta;
     }
@@ -66,7 +78,8 @@ public class Inciso {
     public void setRespuestaCorrecta(int respuestCorrecta) {
         this.respuestaCorrecta = respuestCorrecta;
     }
-/*
+
+    /*
     public int getIdentificador() {
         return identificador;
     }
@@ -74,8 +87,7 @@ public class Inciso {
     public void setIdentificador(int identificador) {
         this.identificador = identificador;
     }
-*/
-
+     */
     public String getRespuestaPrimera() {
         return respuestaPrimera;
     }
@@ -107,7 +119,14 @@ public class Inciso {
     public void setRespuestaCuarta(String respuestaCuarta) {
         this.respuestaCuarta = respuestaCuarta;
     }
-    
-    
-    
+
+    public String getAsignatura() {
+        return asignatura;
+    }
+
+    public void setAsignatura(String asignatura) {
+        this.asignatura = asignatura;
+
+    }
+
 }
