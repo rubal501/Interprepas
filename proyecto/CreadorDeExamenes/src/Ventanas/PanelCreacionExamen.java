@@ -297,10 +297,10 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
 
         asignatura = (String) cmbAsignatura.getSelectedItem();
         grado = asignatura.charAt(1);
-        List<String> respuestas = new ArrayList<String>();
         lblGrado.setText(String.valueOf(grado - 48));
 
         String pregunta = txtPregunta.getText();
+        List<String> respuestas = new ArrayList<String>();
         int respuestaCorrecta = cmbRespuestaCorrecta.getSelectedIndex();
 
         respuestas.add(txtPrimeraRespuesta.getText());
@@ -312,12 +312,10 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
 
         try {
             Inciso inciso = new Inciso(pregunta, grado, respuestaCorrecta, respuestas, claveAsignatura);
-
             ExamenControlador.GuardarRegistroBD(inciso);
             JOptionPane.showMessageDialog(null, "Se ha agregado correctamente al inciso");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se pudo agregar el inciso debido a un error interno, intentelo más tarde");
-            ex.printStackTrace();
         }
 
         for (JTextField campoDeTexto : camposDeTexto) {
@@ -341,9 +339,7 @@ public class PanelCreacionExamen extends javax.swing.JFrame {
         for (JTextField campoDeTexto : camposDeTexto) {
             if (!campoDeTexto.getText().equals("")) {
                 int respuestaMensaje = JOptionPane.showConfirmDialog(null, "Se detectaron cambios pendientes. ¿Continuar sin guardar los cambios actuales?", "Cambios detectados", JOptionPane.YES_NO_OPTION);
-
                 if (respuestaMensaje != JOptionPane.YES_OPTION) {
-
                     return;
                 }
             }
